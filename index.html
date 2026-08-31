@@ -1,0 +1,806 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="임신 준비부터 수유기까지 성분별 복용 구간과 근거 등급을 ACOG·CDC·WHO·NIH 권고 기준으로 정리한 타임라인.">
+<meta property="og:title" content="임신 주차별 영양제 타임라인">
+<meta property="og:description" content="영양소 필요량은 매주 바뀌지 않습니다. 태아 발달 단계 기준으로 정리한 성분별 복용 구간.">
+<meta property="og:type" content="article">
+<title>임신 주차별 영양제 타임라인</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --page:            #f9f9f7;
+    --surface-1:       #fcfcfb;
+    --text-primary:    #0b0b0b;
+    --text-secondary:  #52514e;
+    --muted:           #898781;
+    --grid:            #e1e0d9;
+    --baseline:        #c3c2b7;
+    --border:          rgba(11,11,11,0.10);
+    --tier-1:          #1c5cab;
+    --tier-2:          #3987e5;
+    --tier-3:          #86b6ef;
+    --st-warning:      #fab219;
+    --st-serious:      #ec835a;
+    --st-critical:     #d03b3b;
+    --tip-bg:          #0b0b0b;
+    --tip-fg:          #fcfcfb;
+    --cta-fg:          #fcfcfb;
+    --kicker:          #d03b3b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --page:           #0d0d0d;
+      --surface-1:      #1a1a19;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --muted:          #898781;
+      --grid:           #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --tier-1:         #cde2fb;
+      --tier-2:         #86b6ef;
+      --tier-3:         #3987e5;
+      --kicker:         #e66767;
+      --tip-bg:         #fcfcfb;
+      --tip-fg:         #0b0b0b;
+      --cta-fg:         #0b0b0b;
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --page:           #0d0d0d;
+    --surface-1:      #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --muted:          #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --tier-1:         #cde2fb;
+    --tier-2:         #86b6ef;
+    --tier-3:         #3987e5;
+    --kicker:         #e66767;
+    --tip-bg:         #fcfcfb;
+    --tip-fg:         #0b0b0b;
+    --cta-fg:         #0b0b0b;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo", sans-serif;
+    line-height: 1.5;
+  }
+  .viz-root {
+    background: var(--page);
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+  }
+
+  /* ---------- header ---------- */
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: .12em;
+    color: var(--muted); text-transform: uppercase; margin: 0 0 8px;
+  }
+  h1 { font-size: clamp(24px, 4.2vw, 34px); line-height: 1.25; margin: 0 0 10px; letter-spacing: -0.02em; }
+  .dek { color: var(--text-secondary); font-size: 15px; margin: 0 0 28px; max-width: 62ch; }
+
+  /* ---------- hero stat ---------- */
+  .hero {
+    display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: flex-start;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px 22px; margin-bottom: 32px;
+  }
+  .hero-fig { font-size: 44px; font-weight: 700; line-height: 1; letter-spacing: -0.03em; color: var(--tier-2); }
+  .hero-body { flex: 1 1 320px; min-width: 260px; }
+  .hero-body strong { display: block; font-size: 15px; margin-bottom: 4px; }
+  .hero-body span { color: var(--text-secondary); font-size: 14px; }
+
+  /* ---------- highlight ---------- */
+  .highlight {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--st-critical);
+    border-radius: 12px; padding: 20px 22px; margin-bottom: 18px;
+    position: relative; overflow: hidden;
+  }
+  .highlight::before {
+    content: ""; position: absolute; inset: 0;
+    background: var(--st-critical); opacity: .055; pointer-events: none;
+  }
+  .highlight > * { position: relative; }
+  .hl-kicker {
+    font-size: 11.5px; font-weight: 700; letter-spacing: .1em;
+    color: var(--kicker); margin: 0 0 8px; text-transform: uppercase;
+  }
+  .hl-line {
+    font-size: clamp(18px, 3.2vw, 23px); font-weight: 700; line-height: 1.4;
+    margin: 0 0 10px; letter-spacing: -0.02em; word-break: keep-all;
+  }
+  .hl-body { font-size: 14px; color: var(--text-secondary); margin: 0; max-width: 60ch; word-break: keep-all; }
+
+  /* ---------- promo ---------- */
+  .promos {
+    display: grid; gap: 12px; margin-bottom: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .promo {
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px 22px;
+    display: flex; flex-direction: column;
+  }
+  .promo-foot { margin-top: auto; }
+  .promo-tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+    color: var(--tier-1); border: 1px solid var(--tier-1); border-radius: 999px;
+    padding: 3px 10px; margin: 0 0 12px;
+  }
+  .promo h3 { font-size: 18px; margin: 0 0 6px; letter-spacing: -0.02em; word-break: keep-all; }
+  .promo-when { font-size: 14px; color: var(--text-secondary); margin: 0 0 4px; }
+  .promo-when strong { color: var(--text-primary); }
+  .badge {
+    display: none; margin-left: 8px; font-size: 12px; font-weight: 700;
+    color: #fcfcfb; background: var(--st-critical);
+    border-radius: 999px; padding: 2px 9px; vertical-align: 1px;
+  }
+  .badge.soon { background: var(--st-warning); color: #0b0b0b; }
+
+  /* DHA 비교 미니바 */
+  .dhabar { margin: 12px 0 16px; }
+  .dhabar-row { margin-bottom: 9px; }
+  .dhabar-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 10px; font-size: 11.5px; color: var(--text-secondary); margin-bottom: 4px;
+  }
+  .dhabar-head b { color: var(--text-primary); font-size: 12px; }
+  .dhabar-head em { font-style: normal; color: var(--muted); }
+  .dhabar-track {
+    display: block; height: 10px; background: var(--grid);
+    border-radius: 4px; overflow: hidden;
+  }
+  .dhabar-track i { display: block; height: 100%; border-radius: 4px; }
+  .dhabar-note { font-size: 11px; color: var(--muted); margin: 0; }
+
+  /* 권고 범위 대비 스케일 */
+  .spec { margin: 12px 0 16px; }
+  .spec-row { margin-bottom: 14px; }
+  .spec-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 10px; font-size: 11.5px; color: var(--text-secondary); margin-bottom: 7px;
+  }
+  .spec-head b { color: var(--text-primary); font-size: 12.5px; }
+  .spec-scale {
+    position: relative; height: 12px; background: var(--grid);
+    border-radius: 4px; margin-bottom: 5px;
+  }
+  .spec-scale i { position: absolute; display: block; }
+  .spec-scale .band { height: 100%; background: var(--tier-3); border-radius: 3px; }
+  .spec-scale .pin {
+    width: 3px; height: 20px; top: -4px; background: var(--tier-1);
+    border-radius: 2px; transform: translateX(-50%);
+  }
+  .spec-scale .ul {
+    width: 2px; height: 20px; top: -4px; background: var(--st-critical);
+    transform: translateX(-100%); opacity: .8;
+  }
+  .spec-foot {
+    display: flex; justify-content: space-between;
+    font-size: 10.5px; color: var(--muted);
+  }
+  .spec-legend {
+    display: flex; flex-wrap: wrap; gap: 4px 14px;
+    font-size: 10.5px; color: var(--muted); margin: 0;
+  }
+  .spec-legend span { display: flex; align-items: center; gap: 5px; }
+  .spec-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; }
+
+  /* 남녀 메커니즘 */
+  .why2 { display: grid; gap: 8px; margin: 12px 0; }
+  .why2 > div {
+    background: color-mix(in srgb, var(--tier-1) 7%, transparent);
+    border-radius: 9px; padding: 10px 12px;
+  }
+  .why2 b { display: block; font-size: 12.5px; margin-bottom: 3px; }
+  .why2 span { font-size: 12.5px; color: var(--text-secondary); }
+
+  /* 복용 세팅 표 */
+  table.dose {
+    width: 100%; border-collapse: collapse; font-size: 12.5px;
+    margin: 4px 0 10px; table-layout: fixed; min-width: 0;
+  }
+  table.dose th, table.dose td {
+    padding: 7px 8px; border-bottom: 1px solid var(--grid);
+    text-align: left; vertical-align: top;
+  }
+  table.dose th {
+    font-size: 10.5px; color: var(--muted); text-transform: uppercase;
+    letter-spacing: .06em; font-weight: 600;
+  }
+  table.dose td:first-child { font-weight: 600; width: 46%; word-break: keep-all; }
+  table.dose tr:last-child td { border-bottom: 0; }
+  .dose-note, .dose-warn { font-size: 11.5px; margin: 0 0 8px; line-height: 1.5; }
+  .dose-note { color: var(--text-secondary); }
+  .dose-warn { color: var(--muted); }
+  .promo-why { font-size: 13.5px; color: var(--text-secondary); margin: 10px 0 16px; max-width: 60ch; word-break: keep-all; }
+  .promo-cta {
+    display: inline-block; background: var(--tier-1);
+    font-size: 14.5px; font-weight: 700; text-decoration: none;
+    padding: 12px 22px; border-radius: 10px; transition: filter .12s ease;
+    color: var(--cta-fg);
+  }
+  .promo-cta:hover { filter: brightness(1.08); }
+  .promo-fine { font-size: 11.5px; color: var(--muted); margin: 14px 0 0; line-height: 1.55; max-width: 66ch; }
+
+  /* ---------- section ---------- */
+  section { margin-bottom: 40px; }
+  h2 { font-size: 18px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .sub { color: var(--text-secondary); font-size: 14px; margin: 0 0 18px; max-width: 66ch; }
+
+  /* ---------- legend ---------- */
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0 0 16px; padding: 0; list-style: none; }
+  .legend li { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--text-secondary); }
+  .swatch { width: 14px; height: 14px; border-radius: 4px; flex: none; }
+  .sw-1 { background: var(--tier-1); }
+  .sw-2 { background: var(--tier-2); }
+  .sw-3 { background: var(--tier-3); }
+
+  /* ---------- gantt ---------- */
+  .scroller { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .chart {
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px 18px 14px; min-width: 720px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 116px repeat(7, minmax(58px, 1fr));
+    align-items: center;
+  }
+  .axis-cell {
+    font-size: 11px; color: var(--muted); text-align: center;
+    padding: 0 2px 10px; line-height: 1.3; word-break: keep-all;
+  }
+  .row-label {
+    font-size: 13px; font-weight: 600; color: var(--text-primary);
+    padding-right: 12px; text-align: right; word-break: keep-all;
+  }
+  .row-label small { display: block; font-weight: 400; font-size: 11px; color: var(--muted); }
+  .track {
+    grid-column: 2 / -1; grid-row: var(--r);
+    height: 34px; position: relative;
+    background:
+      repeating-linear-gradient(to right,
+        transparent 0, transparent calc(100%/7 - 1px),
+        var(--grid) calc(100%/7 - 1px), var(--grid) calc(100%/7));
+  }
+  .bar {
+    position: absolute; top: 7px; height: 20px;
+    border-radius: 4px; cursor: default;
+    border: 2px solid var(--surface-1);
+    transition: filter .12s ease;
+  }
+  .bar:hover, .bar:focus-visible { filter: brightness(1.08); outline: none; }
+  .mark {
+    position: absolute; left: calc(200% / 7); top: 0; bottom: 0;
+    width: 0; border-left: 2px dashed var(--st-critical);
+    opacity: .62; z-index: 2; pointer-events: none;
+  }
+  .legend-note {
+    font-size: 12.5px; color: var(--text-secondary);
+    margin: -6px 0 16px; line-height: 1.55;
+  }
+  .legend-note i {
+    display: inline-block; width: 16px; height: 0;
+    border-top: 2px dashed var(--st-critical); opacity: .8;
+    vertical-align: middle; margin-right: 6px;
+  }
+  .b1 { background: var(--tier-1); }
+  .b2 { background: var(--tier-2); }
+  .b3 { background: var(--tier-3); }
+
+  /* ---------- tooltip ---------- */
+  #tip {
+    position: fixed; z-index: 50; pointer-events: none; opacity: 0;
+    background: var(--tip-bg); color: var(--tip-fg);
+    font-size: 12.5px; line-height: 1.45;
+    padding: 9px 11px; border-radius: 8px; max-width: 280px;
+    transition: opacity .1s ease; box-shadow: 0 4px 16px rgba(0,0,0,.22);
+  }
+  #tip b { display: block; margin-bottom: 3px; font-size: 13px; }
+  #tip em { font-style: normal; opacity: .72; }
+
+  /* ---------- caution ---------- */
+  .cautions { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .caution {
+    display: flex; gap: 11px; align-items: flex-start;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-left: 4px solid var(--c); border-radius: 10px; padding: 12px 14px;
+  }
+  .caution .ico { font-size: 15px; line-height: 1.35; flex: none; }
+  .caution b { font-size: 13.5px; display: block; margin-bottom: 2px; }
+  .caution span { font-size: 12.5px; color: var(--text-secondary); }
+  .c-critical { --c: var(--st-critical); }
+  .c-serious  { --c: var(--st-serious); }
+  .c-warning  { --c: var(--st-warning); }
+
+  /* ---------- table ---------- */
+  details { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 0; }
+  summary { cursor: pointer; padding: 14px 18px; font-size: 14px; font-weight: 600; }
+  summary::marker { color: var(--muted); }
+  .tablewrap { overflow-x: auto; padding: 0 18px 18px; }
+  .tablewrap table { border-collapse: collapse; width: 100%; font-size: 13px; min-width: 620px; }
+  .tablewrap th, .tablewrap td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+  .tablewrap th { color: var(--muted); font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
+  .tablewrap td:first-child { font-weight: 600; white-space: nowrap; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* ---------- 모바일 최적화 ---------- */
+  .axis-short { display: none; }
+  @media (max-width: 700px) {
+    .viz-root { padding: 20px 12px 44px; }
+    h1 { font-size: 23px; }
+    .dek { font-size: 14px; margin-bottom: 20px; }
+    .hero { padding: 16px; gap: 14px 18px; margin-bottom: 24px; border-radius: 10px; }
+    .hero-fig { font-size: 34px; }
+    .hero-body { flex: 1 1 100%; min-width: 0; }
+    .hero-body span { font-size: 13px; }
+    section { margin-bottom: 30px; }
+    .sub { font-size: 13px; margin-bottom: 14px; }
+    .legend { gap: 6px 14px; font-size: 12px; }
+    .legend li { font-size: 12px; }
+    .legend-note { font-size: 11.5px; margin-bottom: 12px; }
+
+    .scroller { overflow-x: visible; }
+    .chart { min-width: 0; padding: 12px 10px 8px; border-radius: 10px; }
+    .grid { grid-template-columns: 62px repeat(7, minmax(0, 1fr)); }
+    .axis-cell { font-size: 9.5px; padding: 0 1px 8px; }
+    .axis-full { display: none; }
+    .axis-short { display: inline; }
+    .row-label { font-size: 11.5px; padding-right: 6px; }
+    .row-label small { font-size: 9.5px; }
+    .track { height: 30px; }
+    .bar { top: 6px; height: 18px; border-width: 1.5px; }
+
+    .highlight, .promo { padding: 16px; border-radius: 10px; }
+    .hl-body { font-size: 13px; }
+    .promo-why { font-size: 12.5px; }
+    .promo-cta { display: block; text-align: center; padding: 13px 18px; }
+    .promo-fine { font-size: 11px; }
+    .cautions { grid-template-columns: 1fr; }
+    .foldbody { padding: 0 14px 14px; }
+    .nav-cta { padding: 15px 16px; border-radius: 10px; }
+    .nav-cta-title { font-size: 16px; }
+    .caution { padding: 11px 12px; }
+    summary { padding: 12px 14px; font-size: 13px; }
+    .tablewrap { padding: 0 14px 14px; }
+    #tip { max-width: min(280px, calc(100vw - 24px)); font-size: 12px; }
+  }
+  @media (max-width: 380px) {
+    .grid { grid-template-columns: 54px repeat(7, minmax(0, 1fr)); }
+    .axis-cell { font-size: 8.5px; }
+    .row-label { font-size: 10.5px; }
+    .row-label small { display: none; }
+  }
+
+  /* 접기 섹션 */
+  .foldbody { padding: 0 18px 18px; }
+  .fold summary { color: var(--text-primary); }
+  .fold[open] summary { border-bottom: 1px solid var(--grid); margin-bottom: 16px; }
+
+  /* 다음 대시보드 버튼 */
+  .nav-cta {
+    display: block; text-decoration: none; margin-bottom: 32px;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-left: 5px solid var(--tier-1); border-radius: 12px;
+    padding: 18px 22px; transition: filter .12s ease, transform .12s ease;
+  }
+  .nav-cta:hover { filter: brightness(1.03); transform: translateY(-1px); }
+  .nav-cta:focus-visible { outline: 2px solid var(--tier-2); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .nav-cta { transition: none; } .nav-cta:hover { transform: none; } }
+  .nav-cta-eyebrow {
+    display: block; font-size: 11px; font-weight: 700; letter-spacing: .1em;
+    color: var(--muted); text-transform: uppercase; margin-bottom: 6px;
+  }
+  .nav-cta-title {
+    display: block; font-size: 18px; font-weight: 700; color: var(--text-primary);
+    letter-spacing: -0.02em; margin-bottom: 4px; word-break: keep-all;
+  }
+  .nav-cta-title em { font-style: normal; color: var(--tier-2); }
+  .nav-cta-desc { display: block; font-size: 13.5px; color: var(--text-secondary); word-break: keep-all; }
+
+  footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--grid); }
+  footer p { font-size: 12.5px; color: var(--muted); margin: 0 0 6px; }
+</style>
+
+<div class="viz-root">
+
+  <p class="eyebrow">Drughacker Medical · Pregnancy</p>
+  <h1>임신 주차별 영양제 타임라인</h1>
+  <p class="dek">
+    영양소 필요량은 매주 바뀌지 않습니다. 정확한 기준은 <strong>태아 발달 단계와 산모의 혈액량 변화</strong>입니다.
+    ACOG·CDC·WHO·NIH 권고를 기준으로 성분별 복용 구간과 근거 등급을 정리했습니다.
+  </p>
+
+  <section>
+    <h2>성분별 복용 구간</h2>
+    <p class="sub">막대의 길이는 <strong>복용 구간</strong>, 색의 진하기는 <strong>근거 등급</strong>입니다. 색이 진할수록 "이 시기에 반드시" 에 가깝습니다.</p>
+
+    <ul class="legend">
+      <li><span class="swatch sw-1"></span>필수 — 근거 확실, 이 구간엔 반드시</li>
+      <li><span class="swatch sw-2"></span>조건부 — 검사·상황에 따라 조정</li>
+      <li><span class="swatch sw-3"></span>식사 우선 — 부족분만 보충</li>
+    </ul>
+    <p class="legend-note"><i></i> 점선 = <strong>수정 후 약 4주</strong> · 태아 신경관이 닫히는 시점. 이 선 왼쪽에서 이미 시작했어야 하는 것이 엽산입니다.</p>
+
+    <div class="scroller">
+      <div class="chart">
+        <div class="grid" id="grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hero">
+    <div class="hero-fig">4주</div>
+    <div class="hero-body">
+      <strong>태아의 신경관이 닫히는 시점 — 수정 후 약 4주</strong>
+      <span>대부분의 여성이 임신을 알아차리는 시점에는 이 공사가 이미 끝나갑니다. 엽산을 임신 확인 후에 시작하면 늦는 이유이고, 임신 영양제에서 <em>타이밍</em>이 가짓수보다 중요한 이유입니다.</span>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <p class="hl-kicker">⏰ 타이밍</p>
+    <p class="hl-line">임신을 확인하고 엽산을 챙긴다면,<br>이미 늦었습니다.</p>
+    <p class="hl-body">
+      신경관은 <strong>수정 후 약 4주</strong>에 닫힙니다. 생리가 늦어져 테스트기를 확인하는 그 시점엔
+      공사가 이미 끝나가고 있습니다. 엽산은 <strong>임신 확인용이 아니라 임신 준비용</strong>이고,
+      그래서 최소 1개월 — 실무적으로는 <strong>2~3개월 전</strong>부터입니다.
+      코큐텐도 같은 이유입니다. 난자 성숙에 약 90일이 걸리니까요.
+    </p>
+  </div>
+
+  <section>
+    <details class="fold">
+      <summary>🔎 굳이 챙기지 않아도 되는 성분 <span id="caution-n"></span>가지</summary>
+      <div class="foldbody">
+        <p class="sub">타임라인에 넣지 않은 이유가 있는 성분들입니다.
+          그냥 안 챙겨도 되는 것부터 <strong>임신 중에는 피해야 하는 것</strong>까지 섞여 있어서
+          아이콘으로 등급을 표시했습니다.</p>
+        <div class="cautions" id="cautions"></div>
+      </div>
+    </details>
+  </section>
+
+  <div class="promos">
+
+    <aside class="promo">
+      <p class="promo-tag">공동구매 · 광고</p>
+      <h3>특허받은 활성형 엽산 D3 부스터</h3>
+      <p class="promo-when"><strong>9월 3일 목요일 오전 9시</strong> 오픈<span class="badge" id="dday-folate"></span></p>
+      <p class="promo-why">
+        임신 전 3개월 구간에서 가장 중요한 두 축이 <strong>엽산</strong>과 <strong>코큐텐</strong>입니다.
+        위 타임라인에서 점선 왼쪽 — 지금 시작해야 하는 구간이 바로 그 자리입니다.
+      </p>
+
+      <div class="spec">
+        <div class="spec-row">
+          <div class="spec-head"><b>활성형 엽산 800㎍ DFE</b><span>권고 400–800㎍</span></div>
+          <div class="spec-scale">
+            <i class="band" style="left:40%;width:40%"></i>
+            <i class="pin"  style="left:80%"></i>
+            <i class="ul"   style="left:100%"></i>
+          </div>
+          <div class="spec-foot"><span>0</span><span>상한 1,000㎍</span></div>
+        </div>
+
+        <div class="spec-row">
+          <div class="spec-head"><b>비타민 D 2,000 IU</b><span>ACOG 권고 1,000–2,000 IU</span></div>
+          <div class="spec-scale">
+            <i class="band" style="left:25%;width:25%"></i>
+            <i class="pin"  style="left:50%"></i>
+            <i class="ul"   style="left:100%"></i>
+          </div>
+          <div class="spec-foot"><span>0</span><span>IOM 상한 4,000 IU</span></div>
+        </div>
+
+        <p class="spec-legend">
+          <span><i style="background:var(--tier-3)"></i>권고 범위</span>
+          <span><i style="background:var(--tier-1);width:3px;border-radius:2px"></i>이 제품</span>
+          <span><i style="background:var(--st-critical);width:2px;border-radius:1px"></i>상한선</span>
+        </p>
+      </div>
+
+      <p class="promo-why" style="margin-top:0">
+        이 대시보드에서 계속 짚은 게 <strong>상한선</strong>입니다. 시중 카드가 권하는
+        비타민D 4,000IU 이상은 ACOG 권고를 넘지만, 이 제품의 <strong>2,000IU는 권고 범위 안</strong>이고
+        상한의 절반입니다. 엽산도 <strong>800㎍ DFE로 권고 범위 상단</strong>에 정확히 들어갑니다.
+      </p>
+
+      <div class="promo-foot">
+        <a class="promo-cta" href="https://mkt.shopping.naver.com/link/6a87dcaf0d406626cf93b3f5"
+           target="_blank" rel="noopener">공동구매 보러가기 →</a>
+      </div>
+    </aside>
+
+    <aside class="promo">
+      <p class="promo-tag">공동구매 진행 중 · 광고</p>
+      <h3>식물성 DHA 오메가3 1000</h3>
+      <p class="promo-when"><strong>9월 6일 일요일</strong>까지<span class="badge" id="dday-dha"></span></p>
+      <p class="promo-why">
+        임신 중 DHA는 <strong>태아의 뇌와 망막 발달</strong>에 직접 쓰입니다. 그런데 라벨에서 봐야 할 건
+        오메가3 총량이 아니라 <strong>DHA 함량</strong>입니다. 일반 어유는 EPA 위주라 DHA가 낮습니다.
+      </p>
+
+      <div class="dhabar">
+        <div class="dhabar-row">
+          <div class="dhabar-head"><span>일반 어유 <em>(EPA18/DHA12 기준)</em></span><span>DHA 120mg</span></div>
+          <span class="dhabar-track"><i style="width:12%;background:var(--tier-3)"></i></span>
+        </div>
+        <div class="dhabar-row">
+          <div class="dhabar-head"><b>식물성 DHA 오메가3 1000</b><b>DHA 750mg</b></div>
+          <span class="dhabar-track"><i style="width:75%;background:var(--tier-1)"></i></span>
+        </div>
+        <p class="dhabar-note">오메가3 1000mg 중 DHA가 차지하는 비율. 임신 중 권장 최소량은 DHA 200mg/일입니다.</p>
+      </div>
+
+      <p class="promo-why" style="margin-top:0">
+        원료가 전부 <strong>식물성(조류 유래)</strong>이라 어유 특유의 비린내와 수은 걱정에서 자유롭고,
+        생선을 못 먹거나 채식하는 분에게도 맞습니다.
+      </p>
+      <div class="promo-foot">
+        <a class="promo-cta" href="https://mkt.shopping.naver.com/link/6a7965744807f26f3d503b32"
+           target="_blank" rel="noopener">공동구매 보러가기 →</a>
+      </div>
+    </aside>
+
+    <aside class="promo">
+      <p class="promo-tag">공동구매 진행 중 · 광고</p>
+      <h3>최고순도 코큐텐</h3>
+      <p class="promo-when"><strong>임신 준비 고용량 세팅</strong></p>
+      <p class="promo-why">
+        정자도 난자도 <strong>약 3개월</strong>에 걸쳐 새로 만들어집니다.
+        오늘 시작해서 바뀌는 건 오늘의 몸이 아니라 <strong>3개월 뒤에 나올 정자와 난자</strong>입니다.
+        코큐텐에서 리드타임을 강조하는 이유가 이것입니다.
+      </p>
+
+      <div class="why2">
+        <div>
+          <b>👨 남성 — 정자 생성 주기 약 72~90일</b>
+          <span>3개월 전부터 복용하면 <strong>그 기간에 새로 만들어지는 정자</strong>부터 영향을 받습니다.
+          연구에서 보고된 지표는 <strong>운동성</strong>과 <strong>정자 모양(형태)</strong> 개선입니다.</span>
+        </div>
+        <div>
+          <b>👩 여성 — 난자 성숙 주기 약 90일</b>
+          <span>난소예비력 저하·고령에서 <strong>난자 질 지표</strong>(채취 난자 수, 배아 등급) 개선 가능성이
+          보고됐습니다. 자궁 혈류·착상 환경도 함께 거론되지만 이쪽은 근거가 더 제한적입니다.</span>
+        </div>
+      </div>
+
+      <table class="dose">
+        <thead><tr><th>대상</th><th>세팅</th></tr></thead>
+        <tbody>
+          <tr><td>남편</td><td>하루 1번 <strong>2정</strong></td></tr>
+          <tr><td>와이프 기본</td><td>아침 1정 + 저녁 1정</td></tr>
+          <tr><td>난임 기간이 길면</td><td>아침 1정 + <strong>저녁 2정</strong></td></tr>
+          <tr><td>더 심할 때</td><td>아침 2정 + 저녁 2정 (총 <strong>4정</strong>)</td></tr>
+        </tbody>
+      </table>
+
+      <p class="dose-note">💊 지용성이라 <strong>식사 직후 즉시</strong> 드셔야 흡수됩니다.
+        저녁분은 <strong>저녁 식사 직후</strong>로 잡고, 취침 직전 복용은 피하세요.</p>
+      <p class="dose-warn">⚠️ 총 용량은 제품 1정당 함량으로 확인하세요. 연구에서 쓰인 범위는 200~600mg/일입니다.
+        고용량 세팅은 난임 진료를 받는 중이라면 담당의와 맞춰 조정하세요.</p>
+
+      <div class="promo-foot">
+        <a class="promo-cta" href="https://m.site.naver.com/2fbMG"
+           target="_blank" rel="noopener">공동구매 보러가기 →</a>
+      </div>
+    </aside>
+  </div>
+
+  <p class="promo-fine" style="margin:-22px 0 32px">
+    본 게시물은 공동구매 상품에 대한 광고를 포함합니다. 건강기능식품은 질병의 예방·치료를 위한 의약품이 아닙니다.
+    임신 중이거나 복용 중인 약·질환이 있다면 담당의와 상의 후 결정하세요.
+  </p>
+
+  <a class="nav-cta" href="meals.html" style="margin-bottom:10px">
+    <span class="nav-cta-eyebrow">식단</span>
+    <span class="nav-cta-title">임신 준비 부부 7일 식단표 <em>→</em></span>
+    <span class="nav-cta-desc">부부가 같은 밥상으로 먹는 7일치 아침·점심·저녁·간식과 장보기 리스트</span>
+  </a>
+
+  <a class="nav-cta" href="diet.html">
+    <span class="nav-cta-eyebrow">식단</span>
+    <span class="nav-cta-title">임신 확률을 높이는 남녀 식단 <em>→</em></span>
+    <span class="nav-cta-desc">난자·정자·착상 환경을 위한 지중해식 식사 7원칙과 목표별 정리</span>
+  </a>
+
+  <section>
+    <details>
+      <summary>📋 표로 보기 — 구간·목표량·근거</summary>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>성분</th><th>등급</th><th>복용 구간</th><th>총 목표량 (음식 포함)</th><th>핵심 포인트</th></tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+
+  <footer>
+    <p><strong>기준:</strong> ACOG · CDC · WHO · NIH ODS · 보건복지부 2025 한국인 영양소 섭취기준</p>
+    <p>모든 용량은 <strong>총섭취량(음식 + 보충제)</strong> 기준입니다. 제품 라벨 단독 기준이 아닙니다.</p>
+    <p>⚠️ 일반 정보이며 처방이 아닙니다. 질환·복용약·검사 결과에 따라 필요량이 달라지므로 <strong>산부인과 또는 난임 전문의와 상의</strong>하세요.</p>
+  </footer>
+</div>
+
+<div id="tip" role="tooltip"></div>
+
+<script>
+const STAGES = [
+  { full: "임신 전<br>3개월", short: "준비" },
+  { full: "0–4주",            short: "0–4" },
+  { full: "5–12주",           short: "5–12" },
+  { full: "13–27주",          short: "13–27" },
+  { full: "28–36주",          short: "28–36" },
+  { full: "37주–<br>출산",     short: "37+" },
+  { full: "수유기",           short: "수유" }
+];
+
+// tier: 1 필수 · 2 조건부 · 3 식사 우선
+const ROWS = [
+  { name: "코큐텐", note: "CoQ10",
+    target: "200–600mg/일 (연구 용량)",
+    point: "난자 성숙 주기 약 90일 → 최소 3개월 전 시작. 임신 확인 후 지속은 담당의와 상의",
+    bars: [
+      { s: 0, e: 1, tier: 1, label: "임신 전 최소 3개월 · 고용량", why: "난자가 성숙하는 데 약 90일이 걸립니다. 그래서 효과를 기대하려면 임신 시도 최소 3개월 전부터 시작해야 합니다. 연구에서 쓰인 용량은 200–600mg/일로, 일반 코큐텐 제품(100mg)보다 고용량입니다. ⚠️ 난소예비력 저하·고령에서 채취 난자 수와 배아 지표 개선 가능성이 보고됐지만 출산율까지 확실히 높이는지는 불명확합니다. 임신 확인 후에는 안전성이 미확립이라 담당의와 상의하세요." }
+    ]},
+  { name: "엽산", note: "folic acid",
+    target: "600㎍ DFE/일 (보충제 400–800㎍)",
+    point: "신경관결손 예방. 임신 12주까지 반드시. 확인 후 시작하면 늦음",
+    bars: [
+      { s: 0, e: 3, tier: 1, label: "임신 전 3개월 ~ 12주 · 반드시", why: "신경관은 수정 후 약 4주에 닫힙니다. 최소 1개월, 실무적으로 2–3개월 전부터." },
+      { s: 3, e: 7, tier: 2, label: "13주 ~ 수유기 · 유지", why: "프리네이탈 형태로 계속 유지하는 것이 일반적입니다." }
+    ]},
+  { name: "요오드", note: "iodine",
+    target: "220–250㎍/일 (보충제 약 150㎍)",
+    point: "프리네이탈에서 가장 자주 누락. 다시마·켈프와 중복 금지",
+    bars: [ { s: 0, e: 7, tier: 1, label: "전 기간 + 수유기", why: "태아 갑상선·뇌 발달에 직접 쓰입니다. ACOG는 프리네이탈에 150㎍ 포함을 권고합니다. 갑상선 질환자는 반드시 의료진과 조정." } ]},
+  { name: "비타민D", note: "vitamin D",
+    target: "600IU/일 이상 · ACOG 안전범위 1,000–2,000IU",
+    point: "\"4,000IU 이상이면 임신 성공률 up\" 은 ACOG 권고 상한 초과",
+    bars: [ { s: 0, e: 7, tier: 1, label: "전 기간 + 수유기", why: "결핍이 흔해 보충이 필요하지만, 상한이 중요합니다. IOM UL 4,000IU · ACOG는 임신부에게 1,000–2,000IU를 제시. 그 이상은 혈중 25(OH)D 검사 후 의료진 관리 하에." } ]},
+  { name: "DHA", note: "오메가3",
+    target: "최소 200mg/일 (EPA+DHA 250–500mg)",
+    point: "총 오메가3가 아니라 DHA 함량을 볼 것. 중단 시점은 담당의 판단",
+    bars: [ { s: 0, e: 7, tier: 1, label: "전 기간 + 수유기", why: "태아 뇌·망막 발달, 조산 위험 감소. 저수은 생선 주 2–3회(225–340g)로도 상당 부분 채워집니다." } ]},
+  { name: "철분", note: "iron",
+    target: "27mg/일 (WHO: 철 30–60mg + 엽산 400㎍)",
+    point: "전원 고용량이 아니라 CBC·페리틴 기반 조정. 쌍둥이 2배는 위험한 단순화",
+    bars: [
+      { s: 0, e: 3, tier: 2, label: "임신 전 ~ 12주 · 검사 기반", why: "임신 전부터 무조건 고용량일 필요는 없습니다. CBC·페리틴 확인 후 결정. 입덧이 심하면 함량·복용 시간을 조정합니다." },
+      { s: 3, e: 7, tier: 1, label: "13주 ~ 수유기 · 필요량 상승", why: "혈액량 증가와 태아 성장으로 요구량이 급증합니다. ACOG는 임신 초기와 24–28주 빈혈검사를 권고. 칼슘·우유·커피와 2시간 이상 간격." }
+    ]},
+  { name: "콜린", note: "choline",
+    target: "450mg/일 (임신 전 425mg)",
+    point: "대부분의 프리네이탈에 없음. 달걀 1개 ≈ 150mg",
+    bars: [ { s: 0, e: 7, tier: 3, label: "전 기간 · 식사 우선", why: "태아 뇌 발달과 신경관 형성에 관여하고 엽산과 대사 경로를 일부 공유합니다. 콜린을 표기한 프리네이탈은 26%에 불과했습니다. 달걀·육류·콩류가 주 공급원." } ]},
+  { name: "칼슘", note: "calcium",
+    target: "1,000mg/일",
+    point: "식사에서 상당량 충족. 부족분은 대개 300–500mg",
+    bars: [ { s: 0, e: 7, tier: 3, label: "전 기간 · 부족분만", why: "유제품·두부·멸치·녹색채소를 먹고 있다면 이미 상당량이 채워집니다. 보충제로 1,000mg을 통째로 넣는 건 대부분 과잉. 철분제와 2시간 이상 간격." } ]},
+  { name: "비타민B12", note: "조건부",
+    target: "2.6㎍/일",
+    point: "채식·위장질환·메트포르민 복용 시. 고용량 엽산이 결핍을 가릴 수 있음",
+    bars: [ { s: 0, e: 7, tier: 2, label: "해당자만 · 전 기간", why: "엽산만 고용량으로 오래 먹으면 B12 결핍이 가려질 수 있습니다. 채식·비건, 위장질환, 메트포르민 복용자는 함께 확인해야 합니다." } ]}
+];
+
+const CAUTIONS = [
+  { lv: "critical", ico: "🔴", name: "NMN", why: "임신 관련 인체 안전성 데이터가 없습니다. 시중 카드는 \"늦은 임신·DNA 건강\"에 500mg 이상을 권하지만 권장할 근거가 없습니다." },
+  { lv: "critical", ico: "🔴", name: "고농축 커큐민", why: "자궁수축·출혈 위험, 착상 방해 가능성. 요리용 강황과 보충제는 다릅니다. 자궁근종에 \"압도적 1위\"로 권하는 카드가 있으나 임신 준비 중에는 부적절." },
+  { lv: "critical", ico: "🔴", name: "레티놀 형태 비타민A 고함량", why: "기형 유발 위험. 임신 중 대표적 회피 성분입니다." },
+  { lv: "critical", ico: "🔴", name: "DHEA", why: "영양제가 아니라 호르몬입니다. 자가복용 금지. RCT만 분석하면 출산율 개선도 뚜렷하지 않았습니다." },
+  { lv: "serious", ico: "🟠", name: "셀레늄 고용량", why: "총섭취 55㎍/일 기준이고 200㎍ 이상 장기복용은 피합니다. 시중 카드의 100–400㎍은 상한에 근접하거나 초과합니다." },
+  { lv: "serious", ico: "🟠", name: "아르기닌 4,000–7,000mg", why: "착상률·임신율 개선 근거가 매우 약합니다. 남녀 카드 모두에 고용량으로 등장하지만 뒷받침이 부족합니다." },
+  { lv: "warning", ico: "🟡", name: "유산균(프로바이오틱스)", why: "WHO·FIGO·미국영양학회 임신 가이드라인에 루틴 권장이 없습니다. GDM 예방 목적 사용 시 자간전증 위험 증가가 높은 확실성으로 보고됐습니다. \"전 기간 필수\"는 분류 오류." },
+  { lv: "warning", ico: "🟡", name: "비타민K2 (칼마디K2)", why: "모든 임산부의 필수 보충제가 아닙니다. \"임신 중기~후기 모두 필수\"는 근거를 넘어선 분류입니다." },
+  { lv: "warning", ico: "🟡", name: "이노시톨", why: "2023 국제 PCOS 가이드라인은 아직 실험적 치료로 분류합니다. 미오이노시톨 2g 2회는 연구 용량이지 입증된 표준 용량이 아닙니다." },
+  { lv: "warning", ico: "🟡", name: "비타민B6 고용량 장기", why: "말초신경병증 위험. 입덧 조절 목적이라면 용량과 기간을 의료진과 정하세요." },
+  { lv: "warning", ico: "🟡", name: "허브 복합제 · 베르베린 · 다이어트 성분", why: "임신이 확인되면 전면 재평가 대상입니다. 고용량 레스베라트롤도 임신 중 근거가 없습니다." }
+];
+
+/* ---------- render gantt ---------- */
+const grid = document.getElementById("grid");
+let html = '<div class="axis-cell"></div>';
+STAGES.forEach(s => { html += `<div class="axis-cell"><span class="axis-full">${s.full}</span><span class="axis-short">${s.short}</span></div>`; });
+
+ROWS.forEach((r, i) => {
+  const row = i + 2;                       // row 1 = axis
+  html += `<div class="row-label" style="grid-row:${row}">${r.name}<small>${r.note}</small></div>`;
+  html += `<div class="track" style="--r:${row}"><div class="mark"></div>`;
+  r.bars.forEach(b => {
+    const left  = (b.s / 7) * 100;
+    const width = ((b.e - b.s) / 7) * 100;
+    html += `<div class="bar b${b.tier}" tabindex="0"
+      style="left:${left}%;width:${width}%"
+      data-name="${r.name}" data-label="${b.label}" data-why="${b.why}"></div>`;
+  });
+  html += `</div>`;
+});
+grid.innerHTML = html;
+
+/* ---------- render cautions ---------- */
+document.getElementById("caution-n").textContent = CAUTIONS.length;
+document.getElementById("cautions").innerHTML = CAUTIONS.map(c => `
+  <div class="caution c-${c.lv}">
+    <span class="ico">${c.ico}</span>
+    <div><b>${c.name}</b><span>${c.why}</span></div>
+  </div>`).join("");
+
+/* ---------- render table ---------- */
+const TIER_NAME = { 1: "필수", 2: "조건부", 3: "식사 우선" };
+document.getElementById("tbody").innerHTML = ROWS.map(r => {
+  const tiers = [...new Set(r.bars.map(b => TIER_NAME[b.tier]))].join(" → ");
+  const span  = r.bars.map(b => b.label).join(" / ");
+  return `<tr><td>${r.name}</td><td>${tiers}</td><td>${span}</td><td class="num">${r.target}</td><td>${r.point}</td></tr>`;
+}).join("");
+
+/* ---------- tooltip ---------- */
+const tip = document.getElementById("tip");
+function show(el, x, y) {
+  tip.innerHTML = `<b>${el.dataset.name} — ${el.dataset.label}</b><em>${el.dataset.why}</em>`;
+  tip.style.opacity = "1";
+  const r = tip.getBoundingClientRect();
+  let nx = x + 14, ny = y + 16;
+  if (nx + r.width  > innerWidth  - 8) nx = x - r.width - 14;
+  if (ny + r.height > innerHeight - 8) ny = y - r.height - 16;
+  tip.style.left = Math.max(8, nx) + "px";
+  tip.style.top  = Math.max(8, ny) + "px";
+}
+const hide = () => { tip.style.opacity = "0"; };
+
+grid.addEventListener("mousemove", e => {
+  const b = e.target.closest(".bar");
+  b ? show(b, e.clientX, e.clientY) : hide();
+});
+grid.addEventListener("mouseleave", hide);
+grid.addEventListener("focusin", e => {
+  const b = e.target.closest(".bar");
+  if (!b) return;
+  const r = b.getBoundingClientRect();
+  show(b, r.left + r.width / 2, r.bottom);
+});
+grid.addEventListener("focusout", hide);
+
+/* ---------- 공구 D-day 뱃지 (달력일 기준) ---------- */
+(function () {
+  const now   = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const dayDiff = (y, m, d) => Math.round((new Date(y, m, d) - today) / 86400000);
+
+  // 오픈 예정: 2026-09-03(목) 09:00
+  (function () {
+    const el = document.getElementById("dday-folate");
+    const d  = dayDiff(2026, 8, 3);
+    if (d < 0) return;                                   // 이미 오픈 → 뱃지 숨김
+    if (d === 0 && now.getHours() >= 9) return;          // 오픈 당일 9시 이후 → 숨김
+    el.textContent = d === 0 ? "오늘 오전 9시" : "오픈 D-" + d;
+    el.style.display = "inline-block";
+  })();
+
+  // 마감 예정: 2026-09-06(일) 종료
+  (function () {
+    const el = document.getElementById("dday-dha");
+    const d  = dayDiff(2026, 8, 6);
+    if (d < 0) return;                                   // 마감 지남 → 숨김
+    el.textContent = d === 0 ? "오늘 마감" : "마감 D-" + d;
+    el.classList.add("soon");
+    el.style.display = "inline-block";
+  })();
+})();
+</script>

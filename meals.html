@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="임신 준비 부부가 같은 밥상에서 함께 먹는 7일 식단표. 한 끼 구성·요일별 메뉴·주간 빈도·장보기 리스트까지 휴대폰에서 바로 보는 정리본.">
+<meta property="og:title" content="임신 준비 부부 7일 식단표">
+<meta property="og:description" content="부부가 같은 식사를 하고 밥·단백질 양만 조절합니다. 요일별 아침·점심·저녁·간식을 그대로 옮겼습니다.">
+<meta property="og:type" content="article">
+<title>임신 준비 부부 7일 식단표</title>
+<style>
+  :root {
+    color-scheme: light;
+    --page:            #f9f9f7;
+    --surface-1:       #fcfcfb;
+    --text-primary:    #0b0b0b;
+    --text-secondary:  #52514e;
+    --muted:           #898781;
+    --grid:            #e1e0d9;
+    --border:          rgba(11,11,11,0.10);
+    --tier-1:          #1c5cab;
+    --tier-2:          #3987e5;
+    --tier-3:          #86b6ef;
+    --st-warning:      #fab219;
+    --st-serious:      #ec835a;
+    --st-critical:     #d03b3b;
+    --cta-fg:          #fcfcfb;
+    --kicker:          #d03b3b;
+    --ok-green:        #006300;
+    --chip-bg:         rgba(57,135,229,0.10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --page:           #0d0d0d;
+      --surface-1:      #1a1a19;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --muted:          #898781;
+      --grid:           #2c2c2a;
+      --border:         rgba(255,255,255,0.10);
+      --tier-1:         #cde2fb;
+      --tier-2:         #86b6ef;
+      --tier-3:         #3987e5;
+      --kicker:         #e66767;
+      --ok-green:       #0ca30c;
+      --cta-fg:         #0b0b0b;
+      --chip-bg:        rgba(134,182,239,0.14);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page:           #0d0d0d;
+    --surface-1:      #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --muted:          #898781;
+    --grid:           #2c2c2a;
+    --border:         rgba(255,255,255,0.10);
+    --tier-1:         #cde2fb;
+    --tier-2:         #86b6ef;
+    --tier-3:         #3987e5;
+    --kicker:         #e66767;
+    --ok-green:       #0ca30c;
+    --cta-fg:         #0b0b0b;
+    --chip-bg:        rgba(134,182,239,0.14);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; background: var(--page); }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo", sans-serif;
+    line-height: 1.5;
+  }
+  .viz-root {
+    background: var(--page);
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 24px 16px 56px;
+  }
+
+  /* ---------- header ---------- */
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--text-secondary); text-decoration: none;
+    margin-bottom: 18px; padding: 6px 12px 6px 9px;
+    border: 1px solid var(--border); border-radius: 999px;
+    background: var(--surface-1);
+  }
+  .back:hover { color: var(--text-primary); }
+  .back:focus-visible { outline: 2px solid var(--tier-2); outline-offset: 2px; }
+  .eyebrow {
+    font-size: 11.5px; font-weight: 700; letter-spacing: .12em;
+    color: var(--muted); text-transform: uppercase; margin: 0 0 8px;
+  }
+  h1 { font-size: clamp(23px, 6vw, 32px); line-height: 1.25; margin: 0 0 10px; letter-spacing: -0.02em; word-break: keep-all; }
+  .dek { color: var(--text-secondary); font-size: 14.5px; margin: 0 0 24px; word-break: keep-all; }
+
+  h2 {
+    font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--muted); margin: 36px 0 4px;
+  }
+  .h2sub { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 6px; word-break: keep-all; }
+  .lede { font-size: 13.5px; color: var(--text-secondary); margin: 0 0 16px; word-break: keep-all; }
+
+  /* ---------- highlight ---------- */
+  .highlight {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--st-warning);
+    border-radius: 12px; padding: 16px 18px; margin-bottom: 8px;
+  }
+  .hl-kicker {
+    font-size: 11px; font-weight: 700; letter-spacing: .1em;
+    color: var(--kicker); margin: 0 0 7px; text-transform: uppercase;
+  }
+  .hl-line {
+    font-size: 16.5px; font-weight: 700; line-height: 1.45;
+    margin: 0 0 8px; letter-spacing: -0.02em; word-break: keep-all;
+  }
+  .hl-body { font-size: 13.5px; color: var(--text-secondary); margin: 0; word-break: keep-all; }
+
+  /* ---------- 한 끼 구성 ---------- */
+  .plate { display: grid; gap: 8px; }
+  .plate-row {
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 12px; padding: 13px 15px;
+  }
+  .plate-head {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 9px;
+  }
+  .plate-ico { font-size: 17px; line-height: 1; }
+  .plate-name { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
+  .plate-amt { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 9px; }
+  .amt {
+    border: 1px solid var(--grid); border-radius: 9px; padding: 8px 10px;
+  }
+  .amt-tag {
+    display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .06em;
+    color: var(--muted); margin-bottom: 3px;
+  }
+  .amt.f { border-color: var(--st-serious); }
+  .amt.m { border-color: var(--tier-2); }
+  .amt.f { border-color: color-mix(in srgb, var(--st-serious) 45%, transparent); }
+  .amt.m { border-color: color-mix(in srgb, var(--tier-2) 45%, transparent); }
+  .amt.f .amt-tag { color: var(--st-serious); }
+  .amt.m .amt-tag { color: var(--tier-2); }
+  .amt-val { font-size: 13px; font-weight: 600; word-break: keep-all; }
+  .plate-foods { font-size: 12.5px; color: var(--text-secondary); margin: 0; word-break: keep-all; }
+
+  /* ---------- 요일 탭 ---------- */
+  .daybar {
+    position: sticky; top: 0; z-index: 5;
+    background: var(--page);
+    padding: 10px 0 10px;
+    margin: 0 0 14px;
+    border-bottom: 1px solid var(--grid);
+  }
+  .daytabs {
+    display: flex; gap: 6px; overflow-x: auto;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .daytabs::-webkit-scrollbar { display: none; }
+  .daytab {
+    flex: 1 0 auto; min-width: 42px;
+    appearance: none; border: 1px solid var(--border);
+    background: var(--surface-1); color: var(--text-secondary);
+    border-radius: 999px; padding: 9px 4px;
+    font-size: 14px; font-weight: 700; font-family: inherit;
+    cursor: pointer; transition: background .12s ease, color .12s ease;
+  }
+  .daytab[aria-selected="true"] {
+    background: var(--tier-1); color: var(--cta-fg); border-color: var(--tier-1);
+  }
+  .daytab:focus-visible { outline: 2px solid var(--tier-2); outline-offset: 2px; }
+  .daytab .today-dot {
+    display: block; width: 4px; height: 4px; border-radius: 50%;
+    background: var(--st-critical); margin: 3px auto 0;
+  }
+
+  .day > h3 {
+    font-size: 17px; margin: 0 0 10px; letter-spacing: -0.02em;
+    display: flex; align-items: baseline; gap: 8px;
+  }
+  .day > h3 span { font-size: 11.5px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+  .meals { display: grid; gap: 8px; }
+  .meal {
+    display: grid; grid-template-columns: 58px 1fr; gap: 12px;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 12px; padding: 13px 15px; align-items: start;
+  }
+  .meal-when {
+    font-size: 12px; font-weight: 700; color: var(--tier-1);
+    padding-top: 1px;
+  }
+  .meal.snack .meal-when { color: var(--muted); }
+  .meal-what { font-size: 14px; margin: 0; word-break: keep-all; line-height: 1.55; }
+  .meal-what em { font-style: normal; color: var(--muted); font-size: 13px; }
+  .keyrow {
+    margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+  }
+  .keyrow b {
+    font-size: 10.5px; font-weight: 700; letter-spacing: .08em;
+    color: var(--muted); text-transform: uppercase; margin-right: 2px;
+  }
+  .chip {
+    display: inline-block; font-size: 12px; font-weight: 600;
+    background: var(--chip-bg); color: var(--tier-1);
+    border-radius: 999px; padding: 4px 10px;
+  }
+  .daynote {
+    font-size: 12.5px; color: var(--text-secondary);
+    border-left: 3px solid var(--st-warning);
+    padding: 2px 0 2px 11px; margin: 12px 0 0; word-break: keep-all;
+  }
+
+  /* ---------- 성별 강조 ---------- */
+  .sexcard {
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 12px; padding: 4px 15px 6px; margin-bottom: 10px;
+  }
+  .sexcard.f { border-top: 4px solid var(--st-serious); }
+  .sexcard.m { border-top: 4px solid var(--tier-2); }
+  .sexcard h3 { font-size: 15.5px; margin: 13px 0 2px; letter-spacing: -0.01em; }
+  .sexcard > p { font-size: 12.5px; color: var(--text-secondary); margin: 0 0 10px; word-break: keep-all; }
+  .nut { padding: 11px 0; border-top: 1px solid var(--grid); }
+  .nut-name { font-size: 13.5px; font-weight: 700; margin: 0 0 3px; }
+  .nut-food { font-size: 13px; color: var(--text-primary); margin: 0 0 3px; word-break: keep-all; }
+  .nut-why { font-size: 12.5px; color: var(--muted); margin: 0; word-break: keep-all; }
+
+  /* ---------- 주간 빈도 ---------- */
+  .freq { display: grid; gap: 7px; }
+  .freq-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 10px; padding: 11px 14px;
+  }
+  .freq-name { font-size: 13.5px; font-weight: 600; word-break: keep-all; }
+  .freq-val {
+    font-size: 12.5px; font-weight: 700; white-space: nowrap;
+    color: var(--tier-1); font-variant-numeric: tabular-nums;
+  }
+  .freq-row.avoid { border-left: 4px solid var(--st-critical); }
+  .freq-row.avoid .freq-val { color: var(--st-critical); }
+
+  /* ---------- 숫자 3개 ---------- */
+  .nums { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+  .num-card {
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 15px;
+  }
+  .num-tag { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; margin: 0 0 5px; }
+  .num-fig { font-size: 25px; font-weight: 700; letter-spacing: -0.03em; color: var(--tier-2); line-height: 1.1; margin: 0 0 5px; font-variant-numeric: tabular-nums; }
+  .num-desc { font-size: 12.5px; color: var(--text-secondary); margin: 0; word-break: keep-all; }
+
+  /* ---------- 피할 것 ---------- */
+  .avoids { display: flex; flex-wrap: wrap; gap: 7px; }
+  .avoid-chip {
+    font-size: 13px; font-weight: 600; word-break: keep-all;
+    background: var(--surface-1);
+    border: 1px solid var(--grid);
+    border-color: color-mix(in srgb, var(--st-critical) 40%, var(--border));
+    color: var(--text-primary);
+    border-radius: 999px; padding: 8px 13px;
+  }
+
+  /* ---------- 접기 ---------- */
+  details {
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 12px; margin-bottom: 8px; overflow: hidden;
+  }
+  summary {
+    padding: 14px 16px; font-size: 14.5px; font-weight: 700;
+    cursor: pointer; list-style: none; display: flex;
+    justify-content: space-between; align-items: center; gap: 10px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "＋"; color: var(--muted); font-weight: 400; font-size: 17px; }
+  details[open] summary::after { content: "−"; }
+  details[open] summary { border-bottom: 1px solid var(--grid); }
+  .foldbody { padding: 14px 16px 16px; }
+  .shop-group { margin-bottom: 14px; }
+  .shop-group:last-child { margin-bottom: 0; }
+  .shop-title { font-size: 12px; font-weight: 700; letter-spacing: .06em; color: var(--muted); text-transform: uppercase; margin: 0 0 7px; }
+  .shop-items { display: flex; flex-wrap: wrap; gap: 6px; }
+  .shop-item {
+    font-size: 12.5px; background: var(--chip-bg); color: var(--text-primary);
+    border-radius: 7px; padding: 5px 9px; word-break: keep-all;
+  }
+  .foldbody ul { margin: 0; padding-left: 18px; }
+  .foldbody li { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 6px; word-break: keep-all; }
+  .foldbody li:last-child { margin-bottom: 0; }
+  .foldbody li strong { color: var(--text-primary); }
+
+  /* ---------- CTA / footer ---------- */
+  .nav-cta {
+    display: block; text-decoration: none; margin-top: 10px;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-left: 5px solid var(--tier-1); border-radius: 12px;
+    padding: 16px 18px; transition: filter .12s ease, transform .12s ease;
+  }
+  .nav-cta:hover { filter: brightness(1.03); transform: translateY(-1px); }
+  .nav-cta:focus-visible { outline: 2px solid var(--tier-2); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .nav-cta { transition: none; } .nav-cta:hover { transform: none; } }
+  .nav-cta-eyebrow {
+    display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .1em;
+    color: var(--muted); text-transform: uppercase; margin-bottom: 5px;
+  }
+  .nav-cta-title {
+    display: block; font-size: 16.5px; font-weight: 700; color: var(--text-primary);
+    letter-spacing: -0.02em; margin-bottom: 4px; word-break: keep-all;
+  }
+  .nav-cta-title em { font-style: normal; color: var(--tier-2); }
+  .nav-cta-desc { display: block; font-size: 13px; color: var(--text-secondary); word-break: keep-all; }
+
+  footer { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--grid); }
+  footer p { font-size: 12.5px; color: var(--muted); margin: 0 0 6px; word-break: keep-all; }
+  footer a { color: var(--text-secondary); }
+
+  @media (max-width: 380px) {
+    .plate-amt { grid-template-columns: 1fr; }
+    .meal { grid-template-columns: 50px 1fr; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="viz-root">
+
+  <a class="back" href="index.html">← 임신 자료 정리</a>
+
+  <p class="eyebrow">Drughacker Medical · Pregnancy</p>
+  <h1>임신 준비 부부 7일 식단표</h1>
+  <p class="dek">
+    부부가 <strong>같은 밥상</strong>을 씁니다. 밥과 단백질 양만 조절하면 끝입니다.
+    지중해식에 가까운 저가공 식단을 한국 밥상으로 옮긴 7일치입니다.
+  </p>
+
+  <div class="highlight">
+    <p class="hl-kicker">⚠️ 먼저 정리하고 갑니다</p>
+    <p class="hl-line">특정 음식이 임신 확률을 직접 올린다고 입증된 적은 없습니다.</p>
+    <p class="hl-body">
+      다만 저가공 지중해식은 여성의 배란·대사 환경, 남성의 정자 농도·운동성과
+      유리한 <strong>연관성</strong>이 보고됩니다. 대부분 관찰연구라 인과관계까지 확정된 것은 아닙니다.
+    </p>
+  </div>
+
+  <h2>1 · 접시 공식</h2>
+  <p class="h2sub">임신 준비 부부의 한 끼 구성</p>
+  <p class="lede">체중과 활동량에 따라 밥과 단백질 양만 조절하면 부부가 같은 식사를 할 수 있습니다.</p>
+
+  <div class="plate">
+    <div class="plate-row">
+      <div class="plate-head"><span class="plate-ico">🥬</span><span class="plate-name">채소</span></div>
+      <div class="plate-amt">
+        <div class="amt f"><span class="amt-tag">여성</span><span class="amt-val">두 주먹 이상</span></div>
+        <div class="amt m"><span class="amt-tag">남성</span><span class="amt-val">두 주먹 이상</span></div>
+      </div>
+      <p class="plate-foods">시금치 · 브로콜리 · 파프리카 · 토마토 · 버섯</p>
+    </div>
+    <div class="plate-row">
+      <div class="plate-head"><span class="plate-ico">🌾</span><span class="plate-name">통곡물</span></div>
+      <div class="plate-amt">
+        <div class="amt f"><span class="amt-tag">여성</span><span class="amt-val">잡곡밥 ½～⅔공기</span></div>
+        <div class="amt m"><span class="amt-tag">남성</span><span class="amt-val">잡곡밥 ⅔～1공기</span></div>
+      </div>
+      <p class="plate-foods">현미 · 귀리 · 보리 · 통밀 · 고구마</p>
+    </div>
+    <div class="plate-row">
+      <div class="plate-head"><span class="plate-ico">🍳</span><span class="plate-name">단백질</span></div>
+      <div class="plate-amt">
+        <div class="amt f"><span class="amt-tag">여성</span><span class="amt-val">손바닥 크기 1장</span></div>
+        <div class="amt m"><span class="amt-tag">남성</span><span class="amt-val">손바닥 1～1.5장</span></div>
+      </div>
+      <p class="plate-foods">생선 · 달걀 · 두부 · 콩 · 닭 · 살코기</p>
+    </div>
+    <div class="plate-row">
+      <div class="plate-head"><span class="plate-ico">🫒</span><span class="plate-name">건강한 지방</span></div>
+      <div class="plate-amt">
+        <div class="amt f"><span class="amt-tag">여성</span><span class="amt-val">견과류 15g 또는 올리브유 1작은술</span></div>
+        <div class="amt m"><span class="amt-tag">남성</span><span class="amt-val">견과류 20～25g 또는 올리브유</span></div>
+      </div>
+      <p class="plate-foods">호두 · 아몬드 · 들기름 · 올리브유</p>
+    </div>
+    <div class="plate-row">
+      <div class="plate-head"><span class="plate-ico">🍊</span><span class="plate-name">과일</span></div>
+      <div class="plate-amt">
+        <div class="amt f"><span class="amt-tag">여성</span><span class="amt-val">하루 1～2회</span></div>
+        <div class="amt m"><span class="amt-tag">남성</span><span class="amt-val">하루 1～2회</span></div>
+      </div>
+      <p class="plate-foods">베리 · 키위 · 귤 · 사과 · 토마토</p>
+    </div>
+  </div>
+
+  <h2>2 · 7일 식단표</h2>
+  <p class="h2sub">요일을 누르면 그날 식단만 보입니다</p>
+  <p class="lede">오늘 요일이 기본으로 열립니다. 아침·점심·저녁·간식을 그대로 옮겼습니다.</p>
+
+  <div class="daybar">
+    <div class="daytabs" role="tablist" aria-label="요일 선택">
+      <button class="daytab" role="tab" aria-selected="false" aria-controls="d-mon" id="t-mon" data-day="1" type="button">월</button>
+      <button class="daytab" role="tab" aria-selected="false" aria-controls="d-tue" id="t-tue" data-day="2" type="button">화</button>
+      <button class="daytab" role="tab" aria-selected="false" aria-controls="d-wed" id="t-wed" data-day="3" type="button">수</button>
+      <button class="daytab" role="tab" aria-selected="false" aria-controls="d-thu" id="t-thu" data-day="4" type="button">목</button>
+      <button class="daytab" role="tab" aria-selected="false" aria-controls="d-fri" id="t-fri" data-day="5" type="button">금</button>
+      <button class="daytab" role="tab" aria-selected="false" aria-controls="d-sat" id="t-sat" data-day="6" type="button">토</button>
+      <button class="daytab" role="tab" aria-selected="false" aria-controls="d-sun" id="t-sun" data-day="0" type="button">일</button>
+    </div>
+  </div>
+
+  <div id="days">
+
+    <section class="day" id="d-mon" role="tabpanel" aria-labelledby="t-mon">
+      <h3>월요일 <span>DAY 1</span></h3>
+      <div class="meals">
+        <div class="meal"><span class="meal-when">아침</span><p class="meal-what">오트밀 ＋ 무가당 그릭요거트 ＋ 블루베리 ＋ 호두 ＋ 삶은 달걀</p></div>
+        <div class="meal"><span class="meal-when">점심</span><p class="meal-what">보리밥 ＋ 두부구이 ＋ 시금치나물 ＋ 파프리카·양배추 샐러드</p></div>
+        <div class="meal"><span class="meal-when">저녁</span><p class="meal-what">구운 연어 ＋ 브로콜리 ＋ 버섯 ＋ 고구마</p></div>
+        <div class="meal snack"><span class="meal-when">간식</span><p class="meal-what">키위 또는 귤 ＋ 아몬드</p></div>
+      </div>
+      <div class="keyrow"><b>핵심</b><span class="chip">DHA</span><span class="chip">콜린</span><span class="chip">엽산</span><span class="chip">비타민 C</span></div>
+    </section>
+
+    <section class="day" id="d-tue" role="tabpanel" aria-labelledby="t-tue">
+      <h3>화요일 <span>DAY 2</span></h3>
+      <div class="meals">
+        <div class="meal"><span class="meal-when">아침</span><p class="meal-what">통밀빵 ＋ 아보카도 ＋ 달걀 ＋ 토마토</p></div>
+        <div class="meal"><span class="meal-when">점심</span><p class="meal-what">소고기·채소 비빔밥 ＋ 된장국 <em>(고추장은 소량)</em></p></div>
+        <div class="meal"><span class="meal-when">저녁</span><p class="meal-what">두부·버섯전골 ＋ 현미밥 ＋ 오이·부추무침</p></div>
+        <div class="meal snack"><span class="meal-when">간식</span><p class="meal-what">사과 ＋ 무가당 요거트</p></div>
+      </div>
+      <div class="keyrow"><b>핵심</b><span class="chip">여성 철·엽산</span><span class="chip">남성 아연·라이코펜</span></div>
+    </section>
+
+    <section class="day" id="d-wed" role="tabpanel" aria-labelledby="t-wed">
+      <h3>수요일 <span>DAY 3</span></h3>
+      <div class="meals">
+        <div class="meal"><span class="meal-when">아침</span><p class="meal-what">무가당 그릭요거트 ＋ 귀리 ＋ 키위 ＋ 호박씨</p></div>
+        <div class="meal"><span class="meal-when">점심</span><p class="meal-what">닭가슴살 메밀국수 또는 닭고기 샐러드 ＋ 통곡물빵</p></div>
+        <div class="meal"><span class="meal-when">저녁</span><p class="meal-what">고등어구이 ＋ 보리밥 ＋ 쌈채소 ＋ 브로콜리</p></div>
+        <div class="meal snack"><span class="meal-when">간식</span><p class="meal-what">배 ＋ 호두</p></div>
+      </div>
+      <div class="keyrow"><b>핵심</b><span class="chip">DHA</span><span class="chip">셀레늄</span><span class="chip">아연</span><span class="chip">항산화 성분</span></div>
+    </section>
+
+    <section class="day" id="d-thu" role="tabpanel" aria-labelledby="t-thu">
+      <h3>목요일 <span>DAY 4</span></h3>
+      <div class="meals">
+        <div class="meal"><span class="meal-when">아침</span><p class="meal-what">고구마 ＋ 삶은 달걀 ＋ 우유 또는 칼슘 강화 두유</p></div>
+        <div class="meal"><span class="meal-when">점심</span><p class="meal-what">렌틸콩·병아리콩 카레 ＋ 현미밥 ＋ 채소 샐러드</p></div>
+        <div class="meal"><span class="meal-when">저녁</span><p class="meal-what">닭다리살구이 ＋ 구운 가지·파프리카 ＋ 잡곡밥</p></div>
+        <div class="meal snack"><span class="meal-when">간식</span><p class="meal-what">방울토마토 ＋ 아몬드</p></div>
+      </div>
+      <div class="keyrow"><b>핵심</b><span class="chip">식물성 단백질</span><span class="chip">엽산</span><span class="chip">저GI 탄수화물</span></div>
+    </section>
+
+    <section class="day" id="d-fri" role="tabpanel" aria-labelledby="t-fri">
+      <h3>금요일 <span>DAY 5</span></h3>
+      <div class="meals">
+        <div class="meal"><span class="meal-when">아침</span><p class="meal-what">잡곡밥 ½공기 ＋ 달걀찜 ＋ 시금치 ＋ 김 소량</p></div>
+        <div class="meal"><span class="meal-when">점심</span><p class="meal-what">소고기버섯볶음 ＋ 현미밥 ＋ 상추·깻잎</p></div>
+        <div class="meal"><span class="meal-when">저녁</span><p class="meal-what">바지락을 충분히 익힌 순두부찌개 ＋ 보리밥 ＋ 채소</p></div>
+        <div class="meal snack"><span class="meal-when">간식</span><p class="meal-what">오렌지 또는 키위</p></div>
+      </div>
+      <div class="keyrow"><b>핵심</b><span class="chip">철</span><span class="chip">아연</span><span class="chip">비타민 B12</span><span class="chip">비타민 C</span></div>
+      <p class="daynote">김·미역·다시마를 매일 많이 먹으면 요오드가 과해질 수 있습니다. 해조류는 소량만 사용하세요.</p>
+    </section>
+
+    <section class="day" id="d-sat" role="tabpanel" aria-labelledby="t-sat">
+      <h3>토요일 <span>DAY 6</span></h3>
+      <div class="meals">
+        <div class="meal"><span class="meal-when">아침</span><p class="meal-what">통밀빵 ＋ 무가당 땅콩버터 ＋ 바나나 ½개 ＋ 삶은 달걀</p></div>
+        <div class="meal"><span class="meal-when">점심</span><p class="meal-what">새우·채소 통밀파스타 ＋ 토마토소스</p></div>
+        <div class="meal"><span class="meal-when">저녁</span><p class="meal-what">닭고기 또는 두부구이 ＋ 퀴노아·현미밥 ＋ 채소</p></div>
+        <div class="meal snack"><span class="meal-when">간식</span><p class="meal-what">플레인 요거트 ＋ 베리류</p></div>
+      </div>
+      <div class="keyrow"><b>핵심</b><span class="chip">단백질</span><span class="chip">라이코펜</span><span class="chip">아연</span><span class="chip">콜린</span></div>
+    </section>
+
+    <section class="day" id="d-sun" role="tabpanel" aria-labelledby="t-sun">
+      <h3>일요일 <span>DAY 7</span></h3>
+      <div class="meals">
+        <div class="meal"><span class="meal-when">아침</span><p class="meal-what">귀리죽 또는 오트밀 ＋ 사과 ＋ 계피 ＋ 호두</p></div>
+        <div class="meal"><span class="meal-when">점심</span><p class="meal-what">병아리콩·달걀 샐러드 ＋ 통곡물빵</p></div>
+        <div class="meal"><span class="meal-when">저녁</span><p class="meal-what">대구·명태 맑은탕 ＋ 잡곡밥 ＋ 두부·채소</p></div>
+        <div class="meal snack"><span class="meal-when">간식</span><p class="meal-what">귤 ＋ 호박씨 또는 완전히 익힌 굴 소량</p></div>
+      </div>
+      <div class="keyrow"><b>핵심</b><span class="chip">저수은 생선</span><span class="chip">아연</span><span class="chip">셀레늄</span><span class="chip">단백질</span></div>
+    </section>
+
+  </div>
+
+  <details>
+    <summary>🛒 7일치 장보기 리스트</summary>
+    <div class="foldbody">
+      <div class="shop-group">
+        <p class="shop-title">곡물 · 주식</p>
+        <div class="shop-items"><span class="shop-item">오트밀·귀리</span><span class="shop-item">현미</span><span class="shop-item">보리</span><span class="shop-item">잡곡</span><span class="shop-item">퀴노아</span><span class="shop-item">통밀빵·통곡물빵</span><span class="shop-item">메밀국수</span><span class="shop-item">통밀파스타</span><span class="shop-item">고구마</span></div>
+      </div>
+      <div class="shop-group">
+        <p class="shop-title">단백질</p>
+        <div class="shop-items"><span class="shop-item">달걀</span><span class="shop-item">두부·순두부</span><span class="shop-item">연어</span><span class="shop-item">고등어</span><span class="shop-item">대구·명태</span><span class="shop-item">새우</span><span class="shop-item">바지락</span><span class="shop-item">소고기 살코기</span><span class="shop-item">닭가슴살</span><span class="shop-item">닭다리살</span><span class="shop-item">렌틸콩</span><span class="shop-item">병아리콩</span></div>
+      </div>
+      <div class="shop-group">
+        <p class="shop-title">채소</p>
+        <div class="shop-items"><span class="shop-item">시금치</span><span class="shop-item">브로콜리</span><span class="shop-item">파프리카</span><span class="shop-item">양배추</span><span class="shop-item">버섯</span><span class="shop-item">토마토·방울토마토</span><span class="shop-item">오이</span><span class="shop-item">부추</span><span class="shop-item">가지</span><span class="shop-item">상추·깻잎</span><span class="shop-item">쌈채소</span><span class="shop-item">아보카도</span></div>
+      </div>
+      <div class="shop-group">
+        <p class="shop-title">과일</p>
+        <div class="shop-items"><span class="shop-item">블루베리·베리류</span><span class="shop-item">키위</span><span class="shop-item">귤·오렌지</span><span class="shop-item">사과</span><span class="shop-item">배</span><span class="shop-item">바나나</span></div>
+      </div>
+      <div class="shop-group">
+        <p class="shop-title">견과 · 씨앗 · 유지</p>
+        <div class="shop-items"><span class="shop-item">호두</span><span class="shop-item">아몬드</span><span class="shop-item">호박씨</span><span class="shop-item">무가당 땅콩버터</span><span class="shop-item">올리브유</span><span class="shop-item">들기름</span></div>
+      </div>
+      <div class="shop-group">
+        <p class="shop-title">유제품 · 기타</p>
+        <div class="shop-items"><span class="shop-item">무가당 그릭요거트</span><span class="shop-item">플레인 요거트</span><span class="shop-item">우유 또는 칼슘 강화 두유</span><span class="shop-item">된장</span><span class="shop-item">토마토소스</span><span class="shop-item">계피</span><span class="shop-item">김 (소량)</span></div>
+      </div>
+    </div>
+  </details>
+
+  <h2>3 · 성별 강조점</h2>
+  <p class="h2sub">같은 밥상에서 조금 더 챙길 것</p>
+  <p class="lede">식단은 같이 하되, 여성과 남성이 특별히 더 챙기면 좋은 성분이 갈립니다.</p>
+
+  <div class="sexcard f">
+    <h3>👩 여성에게 조금 더</h3>
+    <p>난자·초기 태아 세포분열과 임신 전 빈혈 예방 중심입니다.</p>
+    <div class="nut"><p class="nut-name">엽산</p><p class="nut-food">시금치 · 브로콜리 · 콩 · 아보카도 · 귤</p><p class="nut-why">난자·태아의 세포분열 및 신경관결손 예방</p></div>
+    <div class="nut"><p class="nut-name">철</p><p class="nut-food">살코기 · 조개 · 콩 · 시금치</p><p class="nut-why">임신 전 빈혈과 낮은 페리틴 예방</p></div>
+    <div class="nut"><p class="nut-name">콜린</p><p class="nut-food">달걀 · 육류 · 콩 · 생선</p><p class="nut-why">난자와 초기 태아 신경계 발달</p></div>
+    <div class="nut"><p class="nut-name">DHA</p><p class="nut-food">연어 · 고등어 · 정어리 · 멸치</p><p class="nut-why">난자 세포막, 임신 후 태아 뇌·망막 발달</p></div>
+    <div class="nut"><p class="nut-name">요오드</p><p class="nut-food">요오드화 소금 · 달걀 · 유제품 · 생선</p><p class="nut-why">갑상선호르몬과 태아 뇌 발달</p></div>
+    <div class="nut"><p class="nut-name">비타민 C</p><p class="nut-food">키위 · 귤 · 딸기 · 파프리카</p><p class="nut-why">비헴철 흡수와 항산화 방어</p></div>
+  </div>
+
+  <div class="highlight" style="border-left-color: var(--st-critical); margin-bottom: 22px;">
+    <p class="hl-kicker">식사로 채울 수 없는 하나</p>
+    <p class="hl-line">엽산 400～800㎍은 임신 최소 1개월 전부터 따로 복용해야 합니다.</p>
+    <p class="hl-body">이건 식단으로 대체하는 항목이 아니라, 식단과 <strong>별도로</strong> 챙기는 항목입니다.</p>
+  </div>
+
+  <div class="sexcard m">
+    <h3>👨 남성에게 조금 더</h3>
+    <p>정자 생성 주기와 산화 스트레스 방어 중심입니다.</p>
+    <div class="nut"><p class="nut-name">아연</p><p class="nut-food">완전히 익힌 굴 · 살코기 · 호박씨 · 달걀</p><p class="nut-why">정자 생성과 남성호르몬 대사</p></div>
+    <div class="nut"><p class="nut-name">셀레늄</p><p class="nut-food">생선 · 달걀 · 육류 · 견과류</p><p class="nut-why">정자의 항산화 방어</p></div>
+    <div class="nut"><p class="nut-name">오메가3</p><p class="nut-food">고등어 · 연어 · 정어리</p><p class="nut-why">정자 세포막과 운동성 지원</p></div>
+    <div class="nut"><p class="nut-name">라이코펜</p><p class="nut-food">익힌 토마토 · 토마토소스</p><p class="nut-why">정자의 산화 스트레스 감소 가능성</p></div>
+    <div class="nut"><p class="nut-name">비타민 C · 폴리페놀</p><p class="nut-food">키위 · 귤 · 베리 · 채소</p><p class="nut-why">정자 DNA 산화 손상 방어</p></div>
+    <div class="nut"><p class="nut-name">콜린 · CoQ10</p><p class="nut-food">달걀 · 생선 · 육류 · 땅콩</p><p class="nut-why">에너지 대사 지원</p></div>
+  </div>
+
+  <p class="lede" style="margin-top:12px;">
+    건강한 식사 패턴을 잘 따르는 남성은 정자 농도·총정자 수·전진운동성이 더 양호한 경향을 보였습니다.
+    다만 대부분 관찰연구이므로 임신·출산을 보장하지는 않습니다.
+  </p>
+
+  <h2>4 · 일주일 빈도</h2>
+  <p class="h2sub">요일 메뉴를 바꿔도 이 빈도만 지키면 됩니다</p>
+  <p class="lede">식단표를 그대로 따르지 못하는 주에는 이 표만 기준으로 삼으세요.</p>
+
+  <div class="freq">
+    <div class="freq-row"><span class="freq-name">저수은 생선</span><span class="freq-val">주 2～3회</span></div>
+    <div class="freq-row"><span class="freq-name">콩 · 두부 · 렌틸콩</span><span class="freq-val">주 3～5회</span></div>
+    <div class="freq-row"><span class="freq-name">달걀</span><span class="freq-val">하루 1개 전후</span></div>
+    <div class="freq-row"><span class="freq-name">견과류 · 씨앗</span><span class="freq-val">매일 한 줌 조금 아래</span></div>
+    <div class="freq-row"><span class="freq-name">살코기</span><span class="freq-val">주 1～2회</span></div>
+    <div class="freq-row"><span class="freq-name">채소</span><span class="freq-val">매끼 2종 이상</span></div>
+    <div class="freq-row"><span class="freq-name">과일</span><span class="freq-val">하루 1～2회</span></div>
+    <div class="freq-row"><span class="freq-name">무가당 유제품</span><span class="freq-val">하루 1～2회</span></div>
+    <div class="freq-row avoid"><span class="freq-name">가공육 · 튀김 · 당류 음료</span><span class="freq-val">최대한 적게</span></div>
+  </div>
+
+  <h2>5 · 숫자로 기억할 3개</h2>
+  <p class="h2sub">헷갈릴 때 이것만</p>
+  <div class="nums">
+    <div class="num-card">
+      <p class="num-tag">주간 생선</p>
+      <p class="num-fig">225～340g</p>
+      <p class="num-desc">저수은 생선 주 2～3회. 연어·정어리·새우·대구·명태·고등어가 좋은 선택입니다. (FDA·EPA)</p>
+    </div>
+    <div class="num-card">
+      <p class="num-tag">임신 1개월 전부터</p>
+      <p class="num-fig">400～800㎍</p>
+      <p class="num-desc">엽산 보충제. 식사와 별도로 여성이 챙겨야 하는 유일한 필수 항목입니다.</p>
+    </div>
+    <div class="num-card">
+      <p class="num-tag">유지 기간</p>
+      <p class="num-fig">8～12주</p>
+      <p class="num-desc">남성의 정자 생성 주기와 여성의 배란 전 대사 환경이 바뀌는 데 걸리는 최소 시간입니다.</p>
+    </div>
+  </div>
+
+  <h2>6 · 줄여야 할 것</h2>
+  <p class="h2sub">임신 준비 중 덜어낼 음식</p>
+  <p class="lede">더하는 것보다 빼는 쪽이 근거가 더 일관됩니다.</p>
+  <div class="avoids">
+    <span class="avoid-chip">햄 · 소시지 · 베이컨</span>
+    <span class="avoid-chip">설탕음료 · 단 커피</span>
+    <span class="avoid-chip">과도한 디저트</span>
+    <span class="avoid-chip">매일 먹는 튀김</span>
+    <span class="avoid-chip">배달 패스트푸드</span>
+    <span class="avoid-chip">트랜스지방 제과류</span>
+    <span class="avoid-chip">과음 · 폭음</span>
+    <span class="avoid-chip">에너지음료</span>
+    <span class="avoid-chip">과도한 카페인</span>
+    <span class="avoid-chip">참치회 · 황새치 · 상어</span>
+  </div>
+  <p class="daynote" style="margin-top:14px;">
+    여성은 <strong>배란 후부터</strong> 육회·생굴·반숙란·비살균 유제품을 피하는 것이 안전합니다.
+  </p>
+
+  <h2>7 · 한계</h2>
+  <p class="h2sub">식단보다 더 크게 작용하는 것들</p>
+  <p class="lede">식단은 난임검사나 치료를 대체하는 방법이 아닙니다. 난자·정자·착상에 유리한 환경을 만드는 기본 관리입니다.</p>
+
+  <details open>
+    <summary>식단보다 임신 가능성에 더 큰 영향을 주는 요인</summary>
+    <div class="foldbody">
+      <ul>
+        <li><strong>여성의 나이와 난소예비력</strong></li>
+        <li><strong>배란 여부</strong></li>
+        <li><strong>난관 상태</strong></li>
+        <li><strong>정액검사 결과</strong></li>
+        <li><strong>배란기 관계 시점</strong></li>
+      </ul>
+    </div>
+  </details>
+
+  <a class="nav-cta" href="diet.html">
+    <span class="nav-cta-eyebrow">함께 보기</span>
+    <span class="nav-cta-title">임신 확률을 높이는 남녀 식단 <em>→</em></span>
+    <span class="nav-cta-desc">7일 식단표의 근거가 된 지중해식 7원칙과 목표별(난자·정자·PCOS) 정리</span>
+  </a>
+
+  <a class="nav-cta" href="index.html">
+    <span class="nav-cta-eyebrow">함께 보기</span>
+    <span class="nav-cta-title">임신 주차별 영양제 타임라인 <em>→</em></span>
+    <span class="nav-cta-desc">성분별 복용 구간과 근거 등급, 그리고 굳이 챙기지 않아도 되는 성분</span>
+  </a>
+
+  <footer>
+    <p><strong>기준:</strong> ASRM 자연임신 위원회 의견(2021) · FDA·EPA 생선 섭취 권고 · 식사 패턴과 임신 결과 체계적 문헌고찰 · 남성 식단과 정액지표 메타분석</p>
+    <p>이 분야 연구는 대부분 <strong>관찰연구</strong>입니다. 인과관계로 읽지 마세요.</p>
+    <p>⚠️ 일반 정보이며 처방이 아닙니다. 질환·복용약·검사 결과에 따라 달라지므로 <strong>산부인과 또는 난임 전문의와 상의</strong>하세요.</p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.daytab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.day'));
+  if (!tabs.length || !panels.length) return;
+
+  function select(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+    });
+    panels.forEach(function (p) {
+      p.hidden = p.id !== tab.getAttribute('aria-controls');
+    });
+    if (focus) tab.focus();
+    tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }
+
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { select(tab, false); });
+    tab.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      select(tabs[(i + d + tabs.length) % tabs.length], true);
+    });
+  });
+
+  // 오늘 요일을 기본으로 연다 (일=0 … 토=6)
+  var today = new Date().getDay();
+  var todayTab = tabs.filter(function (t) { return Number(t.dataset.day) === today; })[0] || tabs[0];
+  var dot = document.createElement('span');
+  dot.className = 'today-dot';
+  todayTab.appendChild(dot);
+  todayTab.title = '오늘';
+  select(todayTab, false);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,662 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="난자·정자·착상 환경을 위한 식사 원칙. ASRM·FDA·지중해식 근거 기준으로 정리했습니다.">
+<meta property="og:title" content="임신 확률을 높이는 남녀 식단">
+<meta property="og:description" content="특정 음식 하나가 임신을 만들지는 않습니다. 근거가 가장 일관된 방향만 정리했습니다.">
+<meta property="og:type" content="article">
+<title>임신 확률을 높이는 남녀 식단</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --page:            #f9f9f7;
+    --surface-1:       #fcfcfb;
+    --text-primary:    #0b0b0b;
+    --text-secondary:  #52514e;
+    --muted:           #898781;
+    --grid:            #e1e0d9;
+    --baseline:        #c3c2b7;
+    --border:          rgba(11,11,11,0.10);
+    --tier-1:          #1c5cab;
+    --tier-2:          #3987e5;
+    --tier-3:          #86b6ef;
+    --st-warning:      #fab219;
+    --st-serious:      #ec835a;
+    --st-critical:     #d03b3b;
+    --tip-bg:          #0b0b0b;
+    --tip-fg:          #fcfcfb;
+    --cta-fg:          #fcfcfb;
+    --kicker:          #d03b3b;
+    --ok-green:        #006300;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --page:           #0d0d0d;
+      --surface-1:      #1a1a19;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --muted:          #898781;
+      --grid:           #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --tier-1:         #cde2fb;
+      --tier-2:         #86b6ef;
+      --tier-3:         #3987e5;
+      --kicker:         #e66767;
+      --ok-green:       #0ca30c;
+      --tip-bg:         #fcfcfb;
+      --tip-fg:         #0b0b0b;
+      --cta-fg:         #0b0b0b;
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --page:           #0d0d0d;
+    --surface-1:      #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --muted:          #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --tier-1:         #cde2fb;
+    --tier-2:         #86b6ef;
+    --tier-3:         #3987e5;
+    --kicker:         #e66767;
+    --ok-green:       #0ca30c;
+    --tip-bg:         #fcfcfb;
+    --tip-fg:         #0b0b0b;
+    --cta-fg:         #0b0b0b;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo", sans-serif;
+    line-height: 1.5;
+  }
+  .viz-root {
+    background: var(--page);
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+  }
+
+  /* ---------- header ---------- */
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: .12em;
+    color: var(--muted); text-transform: uppercase; margin: 0 0 8px;
+  }
+  h1 { font-size: clamp(24px, 4.2vw, 34px); line-height: 1.25; margin: 0 0 10px; letter-spacing: -0.02em; }
+  .dek { color: var(--text-secondary); font-size: 15px; margin: 0 0 28px; max-width: 62ch; }
+
+  /* ---------- hero stat ---------- */
+  .hero {
+    display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: flex-start;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px 22px; margin-bottom: 32px;
+  }
+  .hero-fig { font-size: 44px; font-weight: 700; line-height: 1; letter-spacing: -0.03em; color: var(--tier-2); }
+  .hero-body { flex: 1 1 320px; min-width: 260px; }
+  .hero-body strong { display: block; font-size: 15px; margin-bottom: 4px; }
+  .hero-body span { color: var(--text-secondary); font-size: 14px; }
+
+  /* ---------- highlight ---------- */
+  .highlight {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--st-critical);
+    border-radius: 12px; padding: 20px 22px; margin-bottom: 18px;
+    position: relative; overflow: hidden;
+  }
+  .highlight::before {
+    content: ""; position: absolute; inset: 0;
+    background: var(--st-critical); opacity: .055; pointer-events: none;
+  }
+  .highlight > * { position: relative; }
+  .hl-kicker {
+    font-size: 11.5px; font-weight: 700; letter-spacing: .1em;
+    color: var(--kicker); margin: 0 0 8px; text-transform: uppercase;
+  }
+  .hl-line {
+    font-size: clamp(18px, 3.2vw, 23px); font-weight: 700; line-height: 1.4;
+    margin: 0 0 10px; letter-spacing: -0.02em; word-break: keep-all;
+  }
+  .hl-body { font-size: 14px; color: var(--text-secondary); margin: 0; max-width: 60ch; word-break: keep-all; }
+
+  /* ---------- promo ---------- */
+  .promos {
+    display: grid; gap: 12px; margin-bottom: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .promo {
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px 22px;
+    display: flex; flex-direction: column;
+  }
+  .promo-foot { margin-top: auto; }
+  .promo-tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+    color: var(--tier-1); border: 1px solid var(--tier-1); border-radius: 999px;
+    padding: 3px 10px; margin: 0 0 12px;
+  }
+  .promo h3 { font-size: 18px; margin: 0 0 6px; letter-spacing: -0.02em; word-break: keep-all; }
+  .promo-when { font-size: 14px; color: var(--text-secondary); margin: 0 0 4px; }
+  .promo-when strong { color: var(--text-primary); }
+  .badge {
+    display: none; margin-left: 8px; font-size: 12px; font-weight: 700;
+    color: #fcfcfb; background: var(--st-critical);
+    border-radius: 999px; padding: 2px 9px; vertical-align: 1px;
+  }
+  .badge.soon { background: var(--st-warning); color: #0b0b0b; }
+
+  /* DHA 비교 미니바 */
+  .dhabar { margin: 12px 0 16px; }
+  .dhabar-row { margin-bottom: 9px; }
+  .dhabar-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 10px; font-size: 11.5px; color: var(--text-secondary); margin-bottom: 4px;
+  }
+  .dhabar-head b { color: var(--text-primary); font-size: 12px; }
+  .dhabar-head em { font-style: normal; color: var(--muted); }
+  .dhabar-track {
+    display: block; height: 10px; background: var(--grid);
+    border-radius: 4px; overflow: hidden;
+  }
+  .dhabar-track i { display: block; height: 100%; border-radius: 4px; }
+  .dhabar-note { font-size: 11px; color: var(--muted); margin: 0; }
+
+  /* 권고 범위 대비 스케일 */
+  .spec { margin: 12px 0 16px; }
+  .spec-row { margin-bottom: 14px; }
+  .spec-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 10px; font-size: 11.5px; color: var(--text-secondary); margin-bottom: 7px;
+  }
+  .spec-head b { color: var(--text-primary); font-size: 12.5px; }
+  .spec-scale {
+    position: relative; height: 12px; background: var(--grid);
+    border-radius: 4px; margin-bottom: 5px;
+  }
+  .spec-scale i { position: absolute; display: block; }
+  .spec-scale .band { height: 100%; background: var(--tier-3); border-radius: 3px; }
+  .spec-scale .pin {
+    width: 3px; height: 20px; top: -4px; background: var(--tier-1);
+    border-radius: 2px; transform: translateX(-50%);
+  }
+  .spec-scale .ul {
+    width: 2px; height: 20px; top: -4px; background: var(--st-critical);
+    transform: translateX(-100%); opacity: .8;
+  }
+  .spec-foot {
+    display: flex; justify-content: space-between;
+    font-size: 10.5px; color: var(--muted);
+  }
+  .spec-legend {
+    display: flex; flex-wrap: wrap; gap: 4px 14px;
+    font-size: 10.5px; color: var(--muted); margin: 0;
+  }
+  .spec-legend span { display: flex; align-items: center; gap: 5px; }
+  .spec-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; }
+
+  /* 남녀 메커니즘 */
+  .why2 { display: grid; gap: 8px; margin: 12px 0; }
+  .why2 > div {
+    background: color-mix(in srgb, var(--tier-1) 7%, transparent);
+    border-radius: 9px; padding: 10px 12px;
+  }
+  .why2 b { display: block; font-size: 12.5px; margin-bottom: 3px; }
+  .why2 span { font-size: 12.5px; color: var(--text-secondary); }
+
+  /* 복용 세팅 표 */
+  table.dose {
+    width: 100%; border-collapse: collapse; font-size: 12.5px;
+    margin: 4px 0 10px; table-layout: fixed; min-width: 0;
+  }
+  table.dose th, table.dose td {
+    padding: 7px 8px; border-bottom: 1px solid var(--grid);
+    text-align: left; vertical-align: top;
+  }
+  table.dose th {
+    font-size: 10.5px; color: var(--muted); text-transform: uppercase;
+    letter-spacing: .06em; font-weight: 600;
+  }
+  table.dose td:first-child { font-weight: 600; width: 46%; word-break: keep-all; }
+  table.dose tr:last-child td { border-bottom: 0; }
+  .dose-note, .dose-warn { font-size: 11.5px; margin: 0 0 8px; line-height: 1.5; }
+  .dose-note { color: var(--text-secondary); }
+  .dose-warn { color: var(--muted); }
+  .promo-why { font-size: 13.5px; color: var(--text-secondary); margin: 10px 0 16px; max-width: 60ch; word-break: keep-all; }
+  .promo-cta {
+    display: inline-block; background: var(--tier-1);
+    font-size: 14.5px; font-weight: 700; text-decoration: none;
+    padding: 12px 22px; border-radius: 10px; transition: filter .12s ease;
+    color: var(--cta-fg);
+  }
+  .promo-cta:hover { filter: brightness(1.08); }
+  .promo-fine { font-size: 11.5px; color: var(--muted); margin: 14px 0 0; line-height: 1.55; max-width: 66ch; }
+
+  /* ---------- section ---------- */
+  section { margin-bottom: 40px; }
+  h2 { font-size: 18px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .sub { color: var(--text-secondary); font-size: 14px; margin: 0 0 18px; max-width: 66ch; }
+
+  /* ---------- legend ---------- */
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0 0 16px; padding: 0; list-style: none; }
+  .legend li { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--text-secondary); }
+  .swatch { width: 14px; height: 14px; border-radius: 4px; flex: none; }
+  .sw-1 { background: var(--tier-1); }
+  .sw-2 { background: var(--tier-2); }
+  .sw-3 { background: var(--tier-3); }
+
+  /* ---------- gantt ---------- */
+  .scroller { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .chart {
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px 18px 14px; min-width: 720px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 116px repeat(7, minmax(58px, 1fr));
+    align-items: center;
+  }
+  .axis-cell {
+    font-size: 11px; color: var(--muted); text-align: center;
+    padding: 0 2px 10px; line-height: 1.3; word-break: keep-all;
+  }
+  .row-label {
+    font-size: 13px; font-weight: 600; color: var(--text-primary);
+    padding-right: 12px; text-align: right; word-break: keep-all;
+  }
+  .row-label small { display: block; font-weight: 400; font-size: 11px; color: var(--muted); }
+  .track {
+    grid-column: 2 / -1; grid-row: var(--r);
+    height: 34px; position: relative;
+    background:
+      repeating-linear-gradient(to right,
+        transparent 0, transparent calc(100%/7 - 1px),
+        var(--grid) calc(100%/7 - 1px), var(--grid) calc(100%/7));
+  }
+  .bar {
+    position: absolute; top: 7px; height: 20px;
+    border-radius: 4px; cursor: default;
+    border: 2px solid var(--surface-1);
+    transition: filter .12s ease;
+  }
+  .bar:hover, .bar:focus-visible { filter: brightness(1.08); outline: none; }
+  .mark {
+    position: absolute; left: calc(200% / 7); top: 0; bottom: 0;
+    width: 0; border-left: 2px dashed var(--st-critical);
+    opacity: .62; z-index: 2; pointer-events: none;
+  }
+  .legend-note {
+    font-size: 12.5px; color: var(--text-secondary);
+    margin: -6px 0 16px; line-height: 1.55;
+  }
+  .legend-note i {
+    display: inline-block; width: 16px; height: 0;
+    border-top: 2px dashed var(--st-critical); opacity: .8;
+    vertical-align: middle; margin-right: 6px;
+  }
+  .b1 { background: var(--tier-1); }
+  .b2 { background: var(--tier-2); }
+  .b3 { background: var(--tier-3); }
+
+  /* ---------- tooltip ---------- */
+  #tip {
+    position: fixed; z-index: 50; pointer-events: none; opacity: 0;
+    background: var(--tip-bg); color: var(--tip-fg);
+    font-size: 12.5px; line-height: 1.45;
+    padding: 9px 11px; border-radius: 8px; max-width: 280px;
+    transition: opacity .1s ease; box-shadow: 0 4px 16px rgba(0,0,0,.22);
+  }
+  #tip b { display: block; margin-bottom: 3px; font-size: 13px; }
+  #tip em { font-style: normal; opacity: .72; }
+
+  /* ---------- caution ---------- */
+  .cautions { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .caution {
+    display: flex; gap: 11px; align-items: flex-start;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-left: 4px solid var(--c); border-radius: 10px; padding: 12px 14px;
+  }
+  .caution .ico { font-size: 15px; line-height: 1.35; flex: none; }
+  .caution b { font-size: 13.5px; display: block; margin-bottom: 2px; }
+  .caution span { font-size: 12.5px; color: var(--text-secondary); }
+  .c-critical { --c: var(--st-critical); }
+  .c-serious  { --c: var(--st-serious); }
+  .c-warning  { --c: var(--st-warning); }
+
+  /* ---------- table ---------- */
+  details { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 0; }
+  summary { cursor: pointer; padding: 14px 18px; font-size: 14px; font-weight: 600; }
+  summary::marker { color: var(--muted); }
+  .tablewrap { overflow-x: auto; padding: 0 18px 18px; }
+  .tablewrap table { border-collapse: collapse; width: 100%; font-size: 13px; min-width: 620px; }
+  .tablewrap th, .tablewrap td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+  .tablewrap th { color: var(--muted); font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
+  .tablewrap td:first-child { font-weight: 600; white-space: nowrap; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* ---------- 모바일 최적화 ---------- */
+  .axis-short { display: none; }
+  @media (max-width: 700px) {
+    .viz-root { padding: 20px 12px 44px; }
+    h1 { font-size: 23px; }
+    .dek { font-size: 14px; margin-bottom: 20px; }
+    .hero { padding: 16px; gap: 14px 18px; margin-bottom: 24px; border-radius: 10px; }
+    .hero-fig { font-size: 34px; }
+    .hero-body { flex: 1 1 100%; min-width: 0; }
+    .hero-body span { font-size: 13px; }
+    section { margin-bottom: 30px; }
+    .sub { font-size: 13px; margin-bottom: 14px; }
+    .legend { gap: 6px 14px; font-size: 12px; }
+    .legend li { font-size: 12px; }
+    .legend-note { font-size: 11.5px; margin-bottom: 12px; }
+
+    .scroller { overflow-x: visible; }
+    .chart { min-width: 0; padding: 12px 10px 8px; border-radius: 10px; }
+    .grid { grid-template-columns: 62px repeat(7, minmax(0, 1fr)); }
+    .axis-cell { font-size: 9.5px; padding: 0 1px 8px; }
+    .axis-full { display: none; }
+    .axis-short { display: inline; }
+    .row-label { font-size: 11.5px; padding-right: 6px; }
+    .row-label small { font-size: 9.5px; }
+    .track { height: 30px; }
+    .bar { top: 6px; height: 18px; border-width: 1.5px; }
+
+    .highlight, .promo { padding: 16px; border-radius: 10px; }
+    .hl-body { font-size: 13px; }
+    .promo-why { font-size: 12.5px; }
+    .promo-cta { display: block; text-align: center; padding: 13px 18px; }
+    .promo-fine { font-size: 11px; }
+    .cautions { grid-template-columns: 1fr; }
+    .foldbody { padding: 0 14px 14px; }
+    .nav-cta { padding: 15px 16px; border-radius: 10px; }
+    .nav-cta-title { font-size: 16px; }
+    .caution { padding: 11px 12px; }
+    summary { padding: 12px 14px; font-size: 13px; }
+    .tablewrap { padding: 0 14px 14px; }
+    #tip { max-width: min(280px, calc(100vw - 24px)); font-size: 12px; }
+  }
+  @media (max-width: 380px) {
+    .grid { grid-template-columns: 54px repeat(7, minmax(0, 1fr)); }
+    .axis-cell { font-size: 8.5px; }
+    .row-label { font-size: 10.5px; }
+    .row-label small { display: none; }
+  }
+
+  /* 접기 섹션 */
+  .foldbody { padding: 0 18px 18px; }
+  .fold summary { color: var(--text-primary); }
+  .fold[open] summary { border-bottom: 1px solid var(--grid); margin-bottom: 16px; }
+
+  /* 다음 대시보드 버튼 */
+  .nav-cta {
+    display: block; text-decoration: none; margin-bottom: 32px;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-left: 5px solid var(--tier-1); border-radius: 12px;
+    padding: 18px 22px; transition: filter .12s ease, transform .12s ease;
+  }
+  .nav-cta:hover { filter: brightness(1.03); transform: translateY(-1px); }
+  .nav-cta:focus-visible { outline: 2px solid var(--tier-2); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .nav-cta { transition: none; } .nav-cta:hover { transform: none; } }
+  .nav-cta-eyebrow {
+    display: block; font-size: 11px; font-weight: 700; letter-spacing: .1em;
+    color: var(--muted); text-transform: uppercase; margin-bottom: 6px;
+  }
+  .nav-cta-title {
+    display: block; font-size: 18px; font-weight: 700; color: var(--text-primary);
+    letter-spacing: -0.02em; margin-bottom: 4px; word-break: keep-all;
+  }
+  .nav-cta-title em { font-style: normal; color: var(--tier-2); }
+  .nav-cta-desc { display: block; font-size: 13.5px; color: var(--text-secondary); word-break: keep-all; }
+
+  footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--grid); }
+  footer p { font-size: 12.5px; color: var(--muted); margin: 0 0 6px; }
+</style><style>
+  /* 식단 전용 */
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--text-secondary); text-decoration: none;
+    margin-bottom: 18px; padding: 6px 12px 6px 9px;
+    border: 1px solid var(--border); border-radius: 999px;
+    background: var(--surface-1);
+  }
+  .back:hover { color: var(--text-primary); }
+  .back:focus-visible { outline: 2px solid var(--tier-2); outline-offset: 2px; }
+
+  .rules { display: grid; gap: 10px; margin-bottom: 8px; }
+  .rule {
+    display: grid; grid-template-columns: 34px 1fr; gap: 14px;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 18px;
+  }
+  .rule-no {
+    font-size: 15px; font-weight: 700; color: var(--cta-fg);
+    background: var(--tier-1); border-radius: 8px;
+    width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .rule h3 { font-size: 15.5px; margin: 4px 0 5px; letter-spacing: -0.01em; word-break: keep-all; }
+  .rule p { font-size: 13.5px; color: var(--text-secondary); margin: 0 0 6px; word-break: keep-all; }
+  .rule p:last-child { margin-bottom: 0; }
+  .rule .num { font-weight: 700; color: var(--tier-2); }
+
+  .goals { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
+  .goal {
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-top: 4px solid var(--tier-2); border-radius: 12px; padding: 16px 18px;
+  }
+  .goal h3 { font-size: 15px; margin: 0 0 10px; letter-spacing: -0.01em; }
+  .goal dl { margin: 0; font-size: 13px; }
+  .goal dt {
+    font-size: 10.5px; font-weight: 700; letter-spacing: .07em;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .goal dd { margin: 0 0 12px; color: var(--text-secondary); word-break: keep-all; }
+  .goal dd:last-child { margin-bottom: 0; }
+  .dt-go { color: var(--ok-green); }
+  .dt-no { color: var(--kicker); }
+
+  .limits { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .limit {
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-left: 4px solid var(--c); border-radius: 10px; padding: 14px 16px;
+  }
+  .limit b { display: block; font-size: 20px; letter-spacing: -0.02em; margin-bottom: 2px;
+             font-variant-numeric: tabular-nums; }
+  .limit span { font-size: 12.5px; color: var(--text-secondary); word-break: keep-all; }
+  .limit .cap { display: block; font-size: 11px; color: var(--muted);
+                text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; }
+  .l-stop { --c: var(--st-critical); }
+  .l-cap  { --c: var(--st-warning); }
+  .l-go   { --c: var(--tier-2); }
+
+  @media (max-width: 700px) {
+    .rule { grid-template-columns: 28px 1fr; gap: 11px; padding: 14px 15px; }
+    .rule-no { width: 26px; height: 26px; font-size: 13px; }
+    .rule h3 { font-size: 14.5px; }
+    .goal, .limit { padding: 14px 15px; }
+  }
+</style>
+
+<div class="viz-root">
+
+  <a class="back" href="index.html">← 주차별 영양제 타임라인</a>
+
+  <p class="eyebrow">Drughacker Medical · Pregnancy</p>
+  <h1>임신 확률을 높이는 남녀 식단</h1>
+  <p class="dek">
+    파인애플심도, 석류즙도 아닙니다. 특정 음식 하나가 난자 질이나 착상률을 올린다고
+    입증된 적은 없습니다. 근거가 가장 일관된 방향은 하나 — <strong>지중해식에 가까운 저가공 식사</strong>입니다.
+  </p>
+
+  <div class="highlight">
+    <p class="hl-kicker">⚠️ 먼저 정리하고 갑니다</p>
+    <p class="hl-line">식단은 임신을 <em style="font-style:normal">보장</em>하지 않습니다.<br>대사 환경을 바꿀 뿐입니다.</p>
+    <p class="hl-body">
+      이 분야 연구는 대부분 <strong>관찰연구</strong>입니다. 그래서 정확한 표현은
+      "임신율을 높인다"가 아니라 <strong>"생식 건강에 유리한 대사 환경을 만든다"</strong>입니다.
+      ASRM도 건강한 식사 자체는 권장하지만, 특정 식단·항산화제·허브가 정상 배란 여성의
+      자연 임신율을 확실히 높인다는 근거는 부족하다고 정리합니다.
+    </p>
+  </div>
+
+  <section>
+    <h2>임신 준비 식사 7원칙</h2>
+    <p class="sub">근거가 강한 순서가 아니라, <strong>실천 순서</strong>로 배열했습니다. 위에서부터 바꾸면 됩니다.</p>
+
+    <div class="rules">
+      <div class="rule">
+        <span class="rule-no">1</span>
+        <div>
+          <h3>매끼 채소를 접시의 절반 정도로</h3>
+          <p>엽산·비타민C·폴리페놀·식이섬유가 한 번에 들어옵니다. 영양제로 채우기 전에 여기부터입니다.</p>
+        </div>
+      </div>
+      <div class="rule">
+        <span class="rule-no">2</span>
+        <div>
+          <h3>흰쌀·빵·단 음료를 줄이고 잡곡·콩·통곡물로</h3>
+          <p>특히 <strong>PCOS나 인슐린 저항성</strong>이 있는 여성의 배란 환경에 직접 영향을 줍니다.</p>
+        </div>
+      </div>
+      <div class="rule">
+        <span class="rule-no">3</span>
+        <div>
+          <h3>지방은 올리브유·견과류·아보카도·생선에서</h3>
+          <p>트랜스지방과 튀김·가공육 중심 식사를 줄이는 게 핵심입니다.</p>
+        </div>
+      </div>
+      <div class="rule">
+        <span class="rule-no">4</span>
+        <div>
+          <h3>저수은 생선을 주 2~3회</h3>
+          <p>연어·정어리·고등어·멸치·송어. FDA는 임신 가능 여성과 임산부에게
+             <span class="num">주 225~340g</span>을 권합니다. DHA를 음식으로 채우는 가장 확실한 경로입니다.</p>
+          <p>⚠️ 참치(대형)·상어·황새치 등 고수은 어종은 제한하세요.</p>
+        </div>
+      </div>
+      <div class="rule">
+        <span class="rule-no">5</span>
+        <div>
+          <h3>달걀·콩·두부·살코기를 충분히</h3>
+          <p>단백질뿐 아니라 <strong>콜린·철·아연·B12</strong> 공급원입니다.
+             큰 달걀 1개에 콜린이 약 <span class="num">150mg</span> — 임신 중 목표가 450mg이니 무시할 양이 아닙니다.</p>
+        </div>
+      </div>
+      <div class="rule">
+        <span class="rule-no">6</span>
+        <div>
+          <h3>가공육·당류 음료·잦은 배달음식 최소화</h3>
+          <p>산화 스트레스와 인슐린 저항성을 줄이는 방향입니다. 남성 정자 지표와도 관련이 거론됩니다.</p>
+        </div>
+      </div>
+      <div class="rule">
+        <span class="rule-no">7</span>
+        <div>
+          <h3>술은 끊고, 카페인은 하루 200mg 미만</h3>
+          <p>커피만이 아니라 <strong>에너지음료·차·초콜릿까지 합산</strong>해야 합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>숫자로 기억할 3개</h2>
+    <p class="sub">식단에서 헷갈릴 때 이 세 개만 기억하면 됩니다.</p>
+    <div class="limits">
+      <div class="limit l-cap">
+        <span class="cap">하루 상한</span>
+        <b>200mg</b>
+        <span>카페인. 커피·차·에너지음료·초콜릿 <strong>전부 합산</strong>해서입니다.</span>
+      </div>
+      <div class="limit l-go">
+        <span class="cap">주간 목표</span>
+        <b>225~340g</b>
+        <span>저수은 생선. FDA 권고량이고, DHA를 음식으로 채우는 경로입니다.</span>
+      </div>
+      <div class="limit l-stop">
+        <span class="cap">임신 시도 중</span>
+        <b>0</b>
+        <span>술. 안전한 하한선이 정해져 있지 않습니다.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>목표별로 나눠 보면</h2>
+    <p class="sub">같은 지중해식이라도 무엇을 노리느냐에 따라 강조점이 달라집니다.</p>
+    <div class="goals">
+      <div class="goal">
+        <h3>🥚 난자 · 배란</h3>
+        <dl>
+          <dt class="dt-go">도움이 될 가능성</dt>
+          <dd>통곡물, 콩, 채소, 생선, 올리브유, 그리고 <strong>정상 체중</strong></dd>
+          <dt class="dt-no">피할 것</dt>
+          <dd>극단적 저탄수·단식, 트랜스지방, 흡연</dd>
+        </dl>
+      </div>
+      <div class="goal">
+        <h3>🏊 정자</h3>
+        <dl>
+          <dt class="dt-go">도움이 될 가능성</dt>
+          <dd>생선, 견과류, 토마토, 채소·과일, 충분한 단백질</dd>
+          <dt class="dt-no">피할 것</dt>
+          <dd>가공육, 과음, 흡연, 급격한 체중 증가, <strong>열 노출</strong></dd>
+        </dl>
+      </div>
+      <div class="goal">
+        <h3>🌱 착상 환경</h3>
+        <dl>
+          <dt class="dt-go">도움이 될 가능성</dt>
+          <dd>혈당 변동이 적은 지중해식, 충분한 단백질과 미량영양소</dd>
+          <dt class="dt-no">피할 것</dt>
+          <dd>파인애플심·석류즙 같은 <strong>단일식품 의존</strong></dd>
+        </dl>
+      </div>
+      <div class="goal">
+        <h3>🔄 다낭성난소증후군(PCOS)</h3>
+        <dl>
+          <dt class="dt-go">도움이 될 가능성</dt>
+          <dd>저GI 탄수화물, 식이섬유, <strong>체중 5~10% 감량</strong></dd>
+          <dt class="dt-no">피할 것</dt>
+          <dd>당음료, 야식, 과도한 정제 탄수화물</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <div class="hero">
+    <div class="hero-fig">6일</div>
+    <div class="hero-body">
+      <strong>식단보다 직접적인 전략이 있습니다</strong>
+      <span>ASRM 정리 기준으로, <strong>배란기 6일 동안 1~2일 간격의 관계</strong>가
+      특정 식품이나 영양제를 챙기는 것보다 훨씬 직접적인 임신 전략입니다.
+      그리고 <strong>금연·절주·정상 체중</strong>이 어떤 보충제보다 근거가 강합니다.</span>
+    </div>
+  </div>
+
+  <a class="nav-cta" href="meals.html" style="margin-bottom:10px">
+    <span class="nav-cta-eyebrow">함께 보기</span>
+    <span class="nav-cta-title">임신 준비 부부 7일 식단표 <em>→</em></span>
+    <span class="nav-cta-desc">위 7원칙을 그대로 옮긴 요일별 아침·점심·저녁·간식과 장보기 리스트</span>
+  </a>
+
+  <a class="nav-cta" href="index.html">
+    <span class="nav-cta-eyebrow">함께 보기</span>
+    <span class="nav-cta-title">임신 주차별 영양제 타임라인 <em>→</em></span>
+    <span class="nav-cta-desc">성분별 복용 구간과 근거 등급, 그리고 굳이 챙기지 않아도 되는 성분</span>
+  </a>
+
+  <footer>
+    <p><strong>기준:</strong> ASRM · FDA · 식사 패턴과 생식 결과 체계적 문헌고찰 · 보건복지부 2025 한국인 영양소 섭취기준</p>
+    <p>이 분야 연구는 대부분 <strong>관찰연구</strong>입니다. 인과관계로 읽지 마세요.</p>
+    <p>⚠️ 일반 정보이며 처방이 아닙니다. 질환·복용약·검사 결과에 따라 달라지므로
+       <strong>산부인과 또는 난임 전문의와 상의</strong>하세요.</p>
+  </footer>
+</div>
