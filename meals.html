@@ -29,6 +29,8 @@
     --kicker:          #d03b3b;
     --ok-green:        #006300;
     --chip-bg:         rgba(57,135,229,0.10);
+    --f-ink:           #b4542a;
+    --m-ink:           #1c5cab;
   }
   @media (prefers-color-scheme: dark) {
     :root:where(:not([data-theme="light"])) {
@@ -47,6 +49,8 @@
       --ok-green:       #0ca30c;
       --cta-fg:         #0b0b0b;
       --chip-bg:        rgba(134,182,239,0.14);
+      --f-ink:           #ec835a;
+      --m-ink:           #86b6ef;
     }
   }
   :root[data-theme="dark"] {
@@ -65,6 +69,8 @@
     --ok-green:       #0ca30c;
     --cta-fg:         #0b0b0b;
     --chip-bg:        rgba(134,182,239,0.14);
+    --f-ink:           #ec835a;
+    --m-ink:           #86b6ef;
   }
 
   * { box-sizing: border-box; }
@@ -147,8 +153,8 @@
   .amt.m { border-color: var(--tier-2); }
   .amt.f { border-color: color-mix(in srgb, var(--st-serious) 45%, transparent); }
   .amt.m { border-color: color-mix(in srgb, var(--tier-2) 45%, transparent); }
-  .amt.f .amt-tag { color: var(--st-serious); }
-  .amt.m .amt-tag { color: var(--tier-2); }
+  .amt.f .amt-tag { color: var(--f-ink); }
+  .amt.m .amt-tag { color: var(--m-ink); }
   .amt-val { font-size: 13px; font-weight: 600; word-break: keep-all; }
   .plate-foods { font-size: 12.5px; color: var(--text-secondary); margin: 0; word-break: keep-all; }
 
@@ -246,7 +252,7 @@
     color: var(--tier-1); font-variant-numeric: tabular-nums;
   }
   .freq-row.avoid { border-left: 4px solid var(--st-critical); }
-  .freq-row.avoid .freq-val { color: var(--st-critical); }
+  .freq-row.avoid .freq-val { color: var(--kicker); }
 
   /* ---------- 숫자 3개 ---------- */
   .nums { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }

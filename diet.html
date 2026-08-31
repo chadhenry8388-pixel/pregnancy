@@ -7,7 +7,7 @@
 <meta property="og:type" content="article">
 <title>임신 확률을 높이는 남녀 식단</title>
 <style>
-  .viz-root {
+  :root {
     color-scheme: light;
     --page:            #f9f9f7;
     --surface-1:       #fcfcfb;
@@ -30,7 +30,7 @@
     --ok-green:        #006300;
   }
   @media (prefers-color-scheme: dark) {
-    :root:where(:not([data-theme="light"])) .viz-root {
+    :root:where(:not([data-theme="light"])) {
       color-scheme: dark;
       --page:           #0d0d0d;
       --surface-1:      #1a1a19;
@@ -50,7 +50,7 @@
       --cta-fg:         #0b0b0b;
     }
   }
-  :root[data-theme="dark"] .viz-root {
+  :root[data-theme="dark"] {
     color-scheme: dark;
     --page:           #0d0d0d;
     --surface-1:      #1a1a19;
@@ -71,6 +71,7 @@
   }
 
   * { box-sizing: border-box; }
+  html { background: var(--page); }
   body {
     margin: 0;
     background: var(--page);
