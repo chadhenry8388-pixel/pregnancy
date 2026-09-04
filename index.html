@@ -218,6 +218,21 @@
   .dhabar-track i { display: block; height: 100%; border-radius: 4px; }
   .dhabar-note { font-size: 11px; color: var(--muted); margin: 0; }
 
+  /* 압도적 스펙 3분할 */
+  .spec-punch {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--border); border-radius: 10px; overflow: hidden;
+    margin: 0 0 14px;
+  }
+  .spec-punch div {
+    background: var(--surface-1); padding: 12px 8px; text-align: center;
+  }
+  .spec-punch b {
+    display: block; font-size: 21px; font-weight: 800; color: var(--tier-2);
+    letter-spacing: -0.03em; font-variant-numeric: tabular-nums; margin-bottom: 3px;
+  }
+  .spec-punch span { font-size: 10.5px; color: var(--text-secondary); line-height: 1.4; }
+
   /* 권고 범위 대비 스케일 */
   .spec { margin: 12px 0 16px; }
   .spec-row { margin-bottom: 14px; }
@@ -571,6 +586,7 @@
       <p class="promo-why">
         임신 중 DHA는 <strong>태아의 뇌와 망막 발달</strong>에 직접 쓰입니다. 그런데 라벨에서 봐야 할 건
         오메가3 총량이 아니라 <strong>DHA 함량</strong>입니다. 일반 어유는 EPA 위주라 DHA가 낮습니다.
+        이 제품은 <strong>오메가3 1,000mg 중 995mg이 DHA</strong> — 사실상 전부입니다.
       </p>
 
       <div class="dhabar">
@@ -579,10 +595,16 @@
           <span class="dhabar-track"><i style="width:12%;background:var(--tier-3)"></i></span>
         </div>
         <div class="dhabar-row">
-          <div class="dhabar-head"><b>식물성 DHA 오메가3 1000</b><b>DHA 750mg</b></div>
-          <span class="dhabar-track"><i style="width:75%;background:var(--tier-1)"></i></span>
+          <div class="dhabar-head"><b>식물성 DHA 오메가3 1000</b><b>DHA 995mg</b></div>
+          <span class="dhabar-track"><i style="width:99.5%;background:var(--tier-1)"></i></span>
         </div>
-        <p class="dhabar-note">오메가3 1000mg 중 DHA가 차지하는 비율. 임신 중 권장 최소량은 DHA 200mg/일입니다.</p>
+        <p class="dhabar-note">오메가3 1,000mg 중 DHA가 차지하는 비율.</p>
+      </div>
+
+      <div class="spec-punch">
+        <div><b>99.5%</b><span>오메가3 1,000mg 중<br>DHA가 995mg</span></div>
+        <div><b>8.3배</b><span>일반 어유 대비<br>DHA 함량</span></div>
+        <div><b>5배</b><span>임신 중 권장 최소량<br>200mg 대비</span></div>
       </div>
 
       <p class="promo-why" style="margin-top:0">
