@@ -125,6 +125,57 @@
   }
   .hl-body { font-size: 14px; color: var(--text-secondary); margin: 0; max-width: 60ch; word-break: keep-all; }
 
+  /* ---------- 1순위 반전 블록 ---------- */
+  .pick {
+    background: var(--tier-1); color: var(--cta-fg);
+    border-radius: 14px; padding: 24px 26px; margin-bottom: 18px;
+  }
+  .pick-eyebrow {
+    font-size: 11.5px; font-weight: 800; letter-spacing: .14em;
+    text-transform: uppercase; opacity: .72; margin: 0 0 10px;
+  }
+  .pick-line {
+    font-size: clamp(19px, 3.4vw, 26px); font-weight: 800; line-height: 1.35;
+    letter-spacing: -0.025em; margin: 0 0 16px; word-break: keep-all;
+  }
+  .pick-split {
+    display: flex; flex-wrap: wrap; gap: 18px 30px; align-items: center;
+    border-top: 1px solid; border-color: color-mix(in srgb, var(--cta-fg) 22%, transparent);
+    padding-top: 16px; margin-bottom: 14px;
+  }
+  .pick-fig {
+    font-size: 52px; font-weight: 800; line-height: .95;
+    letter-spacing: -0.04em; font-variant-numeric: tabular-nums;
+  }
+  .pick-fig small { display: block; font-size: 12px; font-weight: 600; opacity: .72;
+                    letter-spacing: 0; margin-top: 6px; }
+  .pick-body { flex: 1 1 300px; min-width: 250px; font-size: 14px; opacity: .92; word-break: keep-all; }
+  .pick-body p { margin: 0 0 8px; }
+  .pick-body p:last-child { margin-bottom: 0; }
+  .pick-vs {
+    display: grid; gap: 8px; font-size: 13.5px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  .pick-vs div {
+    background: color-mix(in srgb, var(--cta-fg) 12%, transparent);
+    border-radius: 10px; padding: 11px 13px; word-break: keep-all;
+  }
+  .pick-vs b { display: block; margin-bottom: 3px; }
+  .pick-vs span { opacity: .85; }
+
+  /* 타임라인 1순위 행 강조 */
+  .track.featured { height: 44px; }
+  .track.featured .bar { top: 12px; }
+  .track.featured::after {
+    content: ""; position: absolute; inset: 0;
+    background: var(--tier-2); opacity: .085; pointer-events: none; border-radius: 4px;
+  }
+  .row-label .star {
+    display: inline-block; font-size: 9.5px; font-weight: 800; letter-spacing: .04em;
+    color: var(--cta-fg); background: var(--tier-1);
+    border-radius: 999px; padding: 2px 7px; margin-bottom: 3px; white-space: nowrap;
+  }
+
   /* ---------- promo ---------- */
   .promos {
     display: grid; gap: 12px; margin-bottom: 32px;
@@ -229,12 +280,16 @@
   .dose-warn { color: var(--muted); }
   .promo-why { font-size: 13.5px; color: var(--text-secondary); margin: 10px 0 16px; max-width: 60ch; word-break: keep-all; }
   .promo-cta {
-    display: inline-block; background: var(--tier-1);
-    font-size: 14.5px; font-weight: 700; text-decoration: none;
-    padding: 12px 22px; border-radius: 10px; transition: filter .12s ease;
+    display: block; text-align: center; background: var(--tier-1);
+    font-weight: 700; text-decoration: none;
+    padding: 11px 18px; border-radius: 10px; transition: filter .12s ease;
     color: var(--cta-fg);
   }
+  .cta-main { display: block; font-size: 14.5px; letter-spacing: -0.01em; word-break: keep-all; }
+  .cta-sub  { display: block; font-size: 11.5px; font-weight: 600; opacity: .82; margin-top: 2px; }
   .promo-cta:hover { filter: brightness(1.08); }
+  .promo-cta:focus-visible { outline: 2px solid var(--tier-2); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .promo-cta { transition: none; } }
   .promo-fine { font-size: 11.5px; color: var(--muted); margin: 14px 0 0; line-height: 1.55; max-width: 66ch; }
 
   /* ---------- section ---------- */
@@ -367,9 +422,15 @@
     .bar { top: 6px; height: 18px; border-width: 1.5px; }
 
     .highlight, .promo { padding: 16px; border-radius: 10px; }
+    .pick { padding: 18px 16px; border-radius: 12px; }
+    .pick-fig { font-size: 42px; }
+    .pick-split { gap: 12px 20px; }
+    .pick-body { font-size: 13px; }
+    .pick-vs { font-size: 12.5px; }
     .hl-body { font-size: 13px; }
     .promo-why { font-size: 12.5px; }
-    .promo-cta { display: block; text-align: center; padding: 13px 18px; }
+    .promo-cta { padding: 12px 16px; }
+    .cta-main { font-size: 14px; }
     .promo-fine { font-size: 11px; }
     .cautions { grid-template-columns: 1fr; }
     .foldbody { padding: 0 14px 14px; }
@@ -452,6 +513,32 @@
     </div>
   </div>
 
+  <div class="pick">
+    <p class="pick-eyebrow">⭐ 임신 전 1순위</p>
+    <p class="pick-line">임신 준비에서 가장 먼저 시작해야 할 건<br>코큐텐입니다.</p>
+
+    <div class="pick-split">
+      <div class="pick-fig">90일<small>난자·정자가 새로 만들어지는 데 걸리는 시간</small></div>
+      <div class="pick-body">
+        <p>오늘 시작해서 달라지는 건 <strong>오늘의 몸이 아닙니다.</strong>
+           3개월 뒤에 나올 난자와 정자입니다.</p>
+        <p>그래서 임신 준비 성분 중 <strong>가장 시급합니다.</strong>
+           하루 미루면 결과도 그대로 하루 밀립니다.</p>
+      </div>
+    </div>
+
+    <div class="pick-vs">
+      <div>
+        <b>🌱 엽산은 '생긴 아기'를 지킵니다</b>
+        <span>임신 12주까지가 승부처라, 늦게 시작해도 따라잡을 구간이 남아 있습니다.</span>
+      </div>
+      <div>
+        <b>⭐ 코큐텐은 그 앞 단계입니다</b>
+        <span>아기가 생기게 하는 난자·정자 자체를 만드는 90일에 작용합니다. 따라잡을 수 없습니다.</span>
+      </div>
+    </div>
+  </div>
+
   <div class="highlight">
     <p class="hl-kicker">⏰ 타이밍</p>
     <p class="hl-line">임신을 확인하고 엽산을 챙긴다면,<br>이미 늦었습니다.</p>
@@ -504,7 +591,7 @@
       </p>
       <div class="promo-foot">
         <a class="promo-cta" href="https://mkt.shopping.naver.com/link/6a7965744807f26f3d503b32"
-           target="_blank" rel="noopener">공동구매 보러가기 →</a>
+           target="_blank" rel="noopener"><span class="cta-main">영재 만드는 DHA</span><span class="cta-sub">국내 최고함량 오메가3 · 최저가 →</span></a>
       </div>
     </aside>
 
@@ -548,14 +635,14 @@
 
       <div class="promo-foot">
         <a class="promo-cta" href="https://m.site.naver.com/2fbMG"
-           target="_blank" rel="noopener">공동구매 보러가기 →</a>
+           target="_blank" rel="noopener"><span class="cta-main">국가대표 정자·난자를 원한다면</span><span class="cta-sub">최고등급 코큐텐 →</span></a>
       </div>
     </aside>
 
     <aside class="promo">
-      <p class="promo-tag">공동구매</p>
+      <p class="promo-tag" id="tag-folate">공동구매</p>
       <h3>특허받은 활성형 엽산 D3 부스터</h3>
-      <p class="promo-when"><strong>9월 3일 목요일 오전 9시</strong> 오픈<span class="badge" id="dday-folate"></span></p>
+      <p class="promo-when"><span id="when-folate"><strong>9월 3일 목요일 오전 9시</strong> 오픈</span><span class="badge" id="dday-folate"></span></p>
       <p class="promo-why">
         임신 전 3개월 구간에서 가장 중요한 두 축이 <strong>엽산</strong>과 <strong>코큐텐</strong>입니다.
         위 타임라인에서 점선 왼쪽 — 지금 시작해야 하는 구간이 바로 그 자리입니다.
@@ -597,7 +684,7 @@
 
       <div class="promo-foot">
         <a class="promo-cta" href="https://mkt.shopping.naver.com/link/6a87dcaf0d406626cf93b3f5"
-           target="_blank" rel="noopener">공동구매 보러가기 →</a>
+           target="_blank" rel="noopener"><span class="cta-main">2세의 신경관을 가장 튼튼하게</span><span class="cta-sub">특허 엽산 공구 →</span></a>
       </div>
     </aside>
   </div>
@@ -655,7 +742,7 @@ const STAGES = [
 
 // tier: 1 필수 · 2 조건부 · 3 식사 우선
 const ROWS = [
-  { name: "코큐텐", note: "CoQ10",
+  { name: "코큐텐", note: "CoQ10", star: "임신 전 1순위",
     target: "200–600mg/일 (연구 용량)",
     point: "난자 성숙 주기 약 90일 → 최소 3개월 전 시작. 임신 확인 후 지속은 담당의와 상의",
     bars: [
@@ -722,8 +809,9 @@ STAGES.forEach(s => { html += `<div class="axis-cell"><span class="axis-full">${
 
 ROWS.forEach((r, i) => {
   const row = i + 2;                       // row 1 = axis
-  html += `<div class="row-label" style="grid-row:${row}">${r.name}<small>${r.note}</small></div>`;
-  html += `<div class="track" style="--r:${row}"><div class="mark"></div>`;
+  const star = r.star ? `<span class="star">⭐ ${r.star}</span><br>` : "";
+  html += `<div class="row-label" style="grid-row:${row}">${star}${r.name}<small>${r.note}</small></div>`;
+  html += `<div class="track${r.star ? " featured" : ""}" style="--r:${row}"><div class="mark"></div>`;
   r.bars.forEach(b => {
     const left  = (b.s / 7) * 100;
     const width = ((b.e - b.s) / 7) * 100;
@@ -786,10 +874,17 @@ grid.addEventListener("focusout", hide);
 
   // 오픈 예정: 2026-09-03(목) 09:00
   (function () {
-    const el = document.getElementById("dday-folate");
-    const d  = dayDiff(2026, 8, 3);
-    if (d < 0) return;                                   // 이미 오픈 → 뱃지 숨김
-    if (d === 0 && now.getHours() >= 9) return;          // 오픈 당일 9시 이후 → 숨김
+    const el   = document.getElementById("dday-folate");
+    const tag  = document.getElementById("tag-folate");
+    const when = document.getElementById("when-folate");
+    const d    = dayDiff(2026, 8, 3);
+    const open = d < 0 || (d === 0 && now.getHours() >= 9);
+
+    if (open) {                                          // 오픈했으면 문구 전환
+      if (tag)  tag.textContent = "공동구매 진행 중";
+      if (when) when.innerHTML  = "<strong>진행 중</strong> · 9월 3일 오픈";   // 뱃지는 형제 노드라 보존됨
+      return;
+    }
     el.textContent = d === 0 ? "오늘 오전 9시" : "오픈 D-" + d;
     el.style.display = "inline-block";
   })();
