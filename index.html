@@ -580,40 +580,21 @@
   <div class="promos">
 
     <aside class="promo">
-      <p class="promo-tag">공동구매 진행 중</p>
-      <h3>식물성 DHA 오메가3 1000</h3>
-      <p class="promo-when"><strong>9월 6일 일요일</strong>까지<span class="badge" id="dday-dha"></span></p>
+      <p class="promo-tag" id="tag-omega">공동구매 진행 중</p>
+      <h3>최고순도 rTG 오메가3</h3>
+      <p class="promo-when"><span id="when-omega"><strong>9월 7일 월요일 오전 9시</strong>부터</span><span class="badge" id="dday-omega"></span></p>
       <p class="promo-why">
-        임신 중 DHA는 <strong>태아의 뇌와 망막 발달</strong>에 직접 쓰입니다. 그런데 라벨에서 봐야 할 건
-        오메가3 총량이 아니라 <strong>DHA 함량</strong>입니다. 일반 어유는 EPA 위주라 DHA가 낮습니다.
-        이 제품은 <strong>오메가3 1,000mg 중 995mg이 DHA</strong> — 사실상 전부입니다.
+        임신 중 오메가3는 <strong>조산 위험을 낮추고 임신 유지를 도우며</strong>,
+        <strong>태아의 뇌와 신경 조직 구성</strong>에 필요합니다.
+        위 타임라인에서 임신 준비부터 수유기까지 끊김 없이 이어지는 이유가 이것입니다.
       </p>
-
-      <div class="dhabar">
-        <div class="dhabar-row">
-          <div class="dhabar-head"><span>일반 어유 <em>(EPA18/DHA12 기준)</em></span><span>DHA 120mg</span></div>
-          <span class="dhabar-track"><i style="width:12%;background:var(--tier-3)"></i></span>
-        </div>
-        <div class="dhabar-row">
-          <div class="dhabar-head"><b>식물성 DHA 오메가3 1000</b><b>DHA 995mg</b></div>
-          <span class="dhabar-track"><i style="width:99.5%;background:var(--tier-1)"></i></span>
-        </div>
-        <p class="dhabar-note">오메가3 1,000mg 중 DHA가 차지하는 비율.</p>
-      </div>
-
-      <div class="spec-punch">
-        <div><b>99.5%</b><span>오메가3 1,000mg 중<br>DHA가 995mg</span></div>
-        <div><b>8.3배</b><span>일반 어유 대비<br>DHA 함량</span></div>
-        <div><b>5배</b><span>임신 중 권장 최소량<br>200mg 대비</span></div>
-      </div>
-
       <p class="promo-why" style="margin-top:0">
-        원료가 전부 <strong>식물성(조류 유래)</strong>이라 어유 특유의 비린내와 수은 걱정에서 자유롭고,
-        생선을 못 먹거나 채식하는 분에게도 맞습니다.
+        라벨에서 볼 것은 오메가3 총량이 아니라 <strong>EPA와 DHA 각각의 함량</strong>,
+        그리고 <strong>형태(rTG)</strong>입니다.
       </p>
       <div class="promo-foot">
-        <a class="promo-cta" href="https://mkt.shopping.naver.com/link/6a7965744807f26f3d503b32"
-           target="_blank" rel="noopener"><span class="cta-main">영재 만드는 DHA</span><span class="cta-sub">국내 최고함량 오메가3 · 최저가 →</span></a>
+        <a class="promo-cta" href="https://mkt.shopping.naver.com/link/6a1e80e6c61af4258ec02147"
+           target="_blank" rel="noopener"><span class="cta-main">임신전후 염증 감소 오메가3</span><span class="cta-sub">국내생산 최고순도 제품 드럭해커 Pick →</span></a>
       </div>
     </aside>
 
@@ -785,10 +766,10 @@ const ROWS = [
     target: "600IU/일 이상 · ACOG 안전범위 1,000–2,000IU",
     point: "\"4,000IU 이상이면 임신 성공률 up\" 은 ACOG 권고 상한 초과",
     bars: [ { s: 0, e: 7, tier: 1, label: "전 기간 + 수유기", why: "결핍이 흔해 보충이 필요하지만, 상한이 중요합니다. IOM UL 4,000IU · ACOG는 임신부에게 1,000–2,000IU를 제시. 그 이상은 혈중 25(OH)D 검사 후 의료진 관리 하에." } ]},
-  { name: "DHA", note: "오메가3",
-    target: "최소 200mg/일 (EPA+DHA 250–500mg)",
-    point: "총 오메가3가 아니라 DHA 함량을 볼 것. 중단 시점은 담당의 판단",
-    bars: [ { s: 0, e: 7, tier: 1, label: "전 기간 + 수유기", why: "태아 뇌·망막 발달, 조산 위험 감소. 저수은 생선 주 2–3회(225–340g)로도 상당 부분 채워집니다." } ]},
+  { name: "Omega-3", note: "EPA+DHA",
+    target: "DHA 최소 200mg/일 (EPA+DHA 250–500mg)",
+    point: "조산 위험 감소·임신 유지·태아 뇌 신경조직 구성. 라벨에서 EPA·DHA 각각을 확인",
+    bars: [ { s: 0, e: 7, tier: 1, label: "전 기간 + 수유기", why: "임신 중 오메가3는 조산 위험을 낮추고 임신 유지를 도우며, 태아의 뇌와 신경 조직 구성에 쓰입니다. 저수은 생선 주 2–3회(225–340g)로도 상당 부분 채워집니다. 중단 시점은 담당의 판단입니다." } ]},
   { name: "철분", note: "iron",
     target: "27mg/일 (WHO: 철 30–60mg + 엽산 400㎍)",
     point: "전원 고용량이 아니라 CBC·페리틴 기반 조정. 쌍둥이 2배는 위험한 단순화",
@@ -911,12 +892,20 @@ grid.addEventListener("focusout", hide);
     el.style.display = "inline-block";
   })();
 
-  // 마감 예정: 2026-09-06(일) 종료
+  // 오픈: 2026-09-07(월) 09:00
   (function () {
-    const el = document.getElementById("dday-dha");
-    const d  = dayDiff(2026, 8, 6);
-    if (d < 0) return;                                   // 마감 지남 → 숨김
-    el.textContent = d === 0 ? "오늘 마감" : "마감 D-" + d;
+    const el   = document.getElementById("dday-omega");
+    const tag  = document.getElementById("tag-omega");
+    const when = document.getElementById("when-omega");
+    const d    = dayDiff(2026, 8, 7);
+    const open = d < 0 || (d === 0 && now.getHours() >= 9);
+
+    if (open) {                                          // 오픈 후 문구 전환
+      if (tag)  tag.textContent = "공동구매 진행 중";
+      if (when) when.innerHTML  = "<strong>진행 중</strong> · 9월 7일 오픈";
+      return;
+    }
+    el.textContent = d === 0 ? "오늘 오전 9시" : "오픈 D-" + d;
     el.classList.add("soon");
     el.style.display = "inline-block";
   })();
