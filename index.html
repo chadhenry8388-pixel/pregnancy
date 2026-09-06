@@ -227,6 +227,7 @@
   .spec-punch div {
     background: var(--surface-1); padding: 12px 8px; text-align: center;
   }
+  .spec-punch b small { font-weight: 700; letter-spacing: 0; }
   .spec-punch b {
     display: block; font-size: 21px; font-weight: 800; color: var(--tier-2);
     letter-spacing: -0.03em; font-variant-numeric: tabular-nums; margin-bottom: 3px;
@@ -589,9 +590,40 @@
         위 타임라인에서 임신 준비부터 수유기까지 끊김 없이 이어지는 이유가 이것입니다.
       </p>
       <p class="promo-why" style="margin-top:0">
-        라벨에서 볼 것은 오메가3 총량이 아니라 <strong>EPA와 DHA 각각의 함량</strong>,
+        라벨에서 볼 것은 오메가3 총량이 아니라 <strong>EPA+DHA 함량</strong>과 <strong>순도</strong>,
         그리고 <strong>형태(rTG)</strong>입니다.
+        <strong>저스트글로우 알티지오메가3</strong>는 <strong>순도 80%</strong>에
+        <strong>EPA+DHA 1,000mg</strong>으로 최고 수준입니다.
       </p>
+
+      <div class="dhabar">
+        <div class="dhabar-row">
+          <div class="dhabar-head"><span>일반 비농축 어유 <em>(TG)</em></span><span>순도 약 30%</span></div>
+          <span class="dhabar-track"><i style="width:30%;background:var(--tier-3)"></i></span>
+        </div>
+        <div class="dhabar-row">
+          <div class="dhabar-head"><span>일반 농축 오메가3 <em>(EE)</em></span><span>순도 약 55%</span></div>
+          <span class="dhabar-track"><i style="width:55%;background:var(--tier-2)"></i></span>
+        </div>
+        <div class="dhabar-row">
+          <div class="dhabar-head"><b>저스트글로우 알티지오메가3</b><b>순도 80%</b></div>
+          <span class="dhabar-track"><i style="width:80%;background:var(--tier-1)"></i></span>
+        </div>
+        <p class="dhabar-note">오일 중 EPA+DHA가 차지하는 비율. 일반 순도는 업계 통용 기준입니다.</p>
+      </div>
+
+      <div class="spec-punch">
+        <div><b>80%</b><span>EPA+DHA<br>순도</span></div>
+        <div><b>1,000<small style="font-size:12px">mg</small></b><span>1회 EPA+DHA<br>함량</span></div>
+        <div><b>rTG</b><span>재에스터화<br>중성지방형</span></div>
+      </div>
+
+      <p class="dose-note" style="margin-bottom:14px">
+        💊 <strong>복용 안내</strong> — 임신 기간 중에는 계속 드시다가,
+        <strong>출산 1달 전에 잠시 끊고</strong>, 출산 후 다시 드세요.
+        <span style="color:var(--muted)">(담당의 안내가 있으면 그에 따르세요.)</span>
+      </p>
+
       <div class="promo-foot">
         <a class="promo-cta" href="https://mkt.shopping.naver.com/link/6a1e80e6c61af4258ec02147"
            target="_blank" rel="noopener"><span class="cta-main">임신전후 염증 감소 오메가3</span><span class="cta-sub">국내생산 최고순도 제품 드럭해커 Pick →</span></a>
@@ -769,7 +801,7 @@ const ROWS = [
   { name: "Omega-3", note: "EPA+DHA",
     target: "DHA 최소 200mg/일 (EPA+DHA 250–500mg)",
     point: "조산 위험 감소·임신 유지·태아 뇌 신경조직 구성. 라벨에서 EPA·DHA 각각을 확인",
-    bars: [ { s: 0, e: 7, tier: 1, label: "전 기간 + 수유기", why: "임신 중 오메가3는 조산 위험을 낮추고 임신 유지를 도우며, 태아의 뇌와 신경 조직 구성에 쓰입니다. 저수은 생선 주 2–3회(225–340g)로도 상당 부분 채워집니다. 중단 시점은 담당의 판단입니다." } ]},
+    bars: [ { s: 0, e: 7, tier: 1, label: "전 기간 + 수유기", why: "임신 중 오메가3는 조산 위험을 낮추고 임신 유지를 도우며, 태아의 뇌와 신경 조직 구성에 쓰입니다. 저수은 생선 주 2–3회(225–340g)로도 상당 부분 채워집니다. 임신 기간 중 계속 복용하다가 출산 약 1개월 전 중단하고 출산 후 재개하는 방식이 일반적입니다(담당의 안내가 있으면 우선)." } ]},
   { name: "철분", note: "iron",
     target: "27mg/일 (WHO: 철 30–60mg + 엽산 400㎍)",
     point: "전원 고용량이 아니라 CBC·페리틴 기반 조정. 쌍둥이 2배는 위험한 단순화",
