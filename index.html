@@ -669,59 +669,11 @@
         고용량 세팅은 난임 진료를 받는 중이라면 담당의와 맞춰 조정하세요.</p>
 
       <div class="promo-foot">
-        <a class="promo-cta" href="https://m.site.naver.com/2fbMG"
+        <a class="promo-cta" href="https://friendly-pharmacist.com/store/products/52478"
            target="_blank" rel="noopener"><span class="cta-main">국가대표 정자·난자를 원한다면</span><span class="cta-sub">최고등급 코큐텐 →</span></a>
       </div>
     </aside>
 
-    <aside class="promo">
-      <p class="promo-tag" id="tag-folate">공동구매</p>
-      <h3>특허받은 활성형 엽산 D3 부스터</h3>
-      <p class="promo-when"><span id="when-folate"><strong>9월 3일 목요일 오전 9시</strong> 오픈</span><span class="badge" id="dday-folate"></span></p>
-      <p class="promo-why">
-        임신 전 3개월 구간에서 가장 중요한 두 축이 <strong>엽산</strong>과 <strong>코큐텐</strong>입니다.
-        위 타임라인에서 점선 왼쪽 — 지금 시작해야 하는 구간이 바로 그 자리입니다.
-      </p>
-
-      <div class="spec">
-        <div class="spec-row">
-          <div class="spec-head"><b>활성형 엽산 800㎍ DFE</b><span>권고 400–800㎍</span></div>
-          <div class="spec-scale">
-            <i class="band" style="left:40%;width:40%"></i>
-            <i class="pin"  style="left:80%"></i>
-            <i class="ul"   style="left:100%"></i>
-          </div>
-          <div class="spec-foot"><span>0</span><span>상한 1,000㎍</span></div>
-        </div>
-
-        <div class="spec-row">
-          <div class="spec-head"><b>비타민 D 2,000 IU</b><span>ACOG 권고 1,000–2,000 IU</span></div>
-          <div class="spec-scale">
-            <i class="band" style="left:25%;width:25%"></i>
-            <i class="pin"  style="left:50%"></i>
-            <i class="ul"   style="left:100%"></i>
-          </div>
-          <div class="spec-foot"><span>0</span><span>IOM 상한 4,000 IU</span></div>
-        </div>
-
-        <p class="spec-legend">
-          <span><i style="background:var(--tier-3)"></i>권고 범위</span>
-          <span><i style="background:var(--tier-1);width:3px;border-radius:2px"></i>이 제품</span>
-          <span><i style="background:var(--st-critical);width:2px;border-radius:1px"></i>상한선</span>
-        </p>
-      </div>
-
-      <p class="promo-why" style="margin-top:0">
-        이 대시보드에서 계속 짚은 게 <strong>상한선</strong>입니다. 시중 카드가 권하는
-        비타민D 4,000IU 이상은 ACOG 권고를 넘지만, 이 제품의 <strong>2,000IU는 권고 범위 안</strong>이고
-        상한의 절반입니다. 엽산도 <strong>800㎍ DFE로 권고 범위 상단</strong>에 정확히 들어갑니다.
-      </p>
-
-      <div class="promo-foot">
-        <a class="promo-cta" href="https://mkt.shopping.naver.com/link/6a87dcaf0d406626cf93b3f5"
-           target="_blank" rel="noopener"><span class="cta-main">2세의 신경관을 가장 튼튼하게</span><span class="cta-sub">특허 엽산 공구 →</span></a>
-      </div>
-    </aside>
   </div>
 
   <p class="promo-fine" style="margin:-22px 0 32px">
@@ -907,22 +859,6 @@ grid.addEventListener("focusout", hide);
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   const dayDiff = (y, m, d) => Math.round((new Date(y, m, d) - today) / 86400000);
 
-  // 오픈 예정: 2026-09-03(목) 09:00
-  (function () {
-    const el   = document.getElementById("dday-folate");
-    const tag  = document.getElementById("tag-folate");
-    const when = document.getElementById("when-folate");
-    const d    = dayDiff(2026, 8, 3);
-    const open = d < 0 || (d === 0 && now.getHours() >= 9);
-
-    if (open) {                                          // 오픈했으면 문구 전환
-      if (tag)  tag.textContent = "공동구매 진행 중";
-      if (when) when.innerHTML  = "<strong>진행 중</strong> · 9월 3일 오픈";   // 뱃지는 형제 노드라 보존됨
-      return;
-    }
-    el.textContent = d === 0 ? "오늘 오전 9시" : "오픈 D-" + d;
-    el.style.display = "inline-block";
-  })();
 
   // 오픈: 2026-09-07(월) 09:00
   (function () {
