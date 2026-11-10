@@ -608,7 +608,7 @@
     <aside class="promo">
       <p class="promo-tag" id="tag-coq10">공동구매 예정</p>
       <h3>최고순도 코큐텐</h3>
-      <p class="promo-when"><span id="when-coq10"><strong>11월 12일 오픈 예정</strong> · 임신 준비 고용량 세팅</span><span class="badge" id="dday-coq10"></span></p>
+      <p class="promo-when"><span id="when-coq10"><strong>11월 12일 오전 9시부터 구매 가능</strong></span><span class="badge" id="dday-coq10"></span></p>
       <p class="promo-why">
         정자도 난자도 <strong>약 3개월</strong>에 걸쳐 새로 만들어집니다.
         오늘 시작해서 바뀌는 건 오늘의 몸이 아니라 <strong>3개월 뒤에 나올 정자와 난자</strong>입니다.
@@ -835,22 +835,22 @@ grid.addEventListener("focusout", hide);
   const dayDiff = (y, m, d) => Math.round((new Date(y, m, d) - today) / 86400000);
 
 
-  // 오픈일 당일부터 "진행 중"으로 자동 전환
-  const promo = (key, m, d, label) => {
+  // 오픈 시각(기본 0시)부터 "진행 중"으로 자동 전환
+  const promo = (key, m, d, label, hour = 0) => {
     const el   = document.getElementById("dday-" + key);
     const tag  = document.getElementById("tag-" + key);
     const when = document.getElementById("when-" + key);
     const diff = dayDiff(2026, m - 1, d);
-    if (diff <= 0) {
+    if (diff < 0 || (diff === 0 && now.getHours() >= hour)) {
       if (tag)  tag.textContent = "공동구매 진행 중";
       if (when) when.innerHTML  = "<strong>진행 중</strong> · " + label + " 오픈";
       return;
     }
-    el.textContent = "오픈 D-" + diff;
+    el.textContent = diff === 0 ? "오늘 오전 " + hour + "시" : "오픈 D-" + diff;
     el.classList.add("soon");
     el.style.display = "inline-block";
   };
   promo("folate", 11, 16, "11월 16일");   // 활성엽산 D3 부스터
-  promo("coq10",  11, 12, "11월 12일");   // 코큐텐
+  promo("coq10",  11, 12, "11월 12일 오전 9시", 9);   // 코큐텐
 })();
 </script>
